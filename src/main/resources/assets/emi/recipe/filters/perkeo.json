@@ -1,0 +1,10 @@
+{
+  "filters": [
+    {
+      "id": "originscontent:perkeofrom"
+    },
+    {
+      "id": "originscontent:perkeoto"
+    }
+  ]
+}

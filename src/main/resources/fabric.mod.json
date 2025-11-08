@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "originscontent",
+  "version": "${version}",
+  "name": "OriginsContent",
+  "description": "The ContentContent mod, but for Origins SMP.",
+  "authors": ["Zac99LOL", "harry (the goat)"],
+  "contact": {},
+  "license": "GPL-3.0",
+  "icon": "assets/originscontent/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "fabric-datagen": [
+      "dev.zac99lol.originscontent.client.OriginsContentDataGenerator"
+    ],
+    "client": [
+      "dev.zac99lol.originscontent.client.OriginsContentClient"
+    ],
+    "main": [
+      "dev.zac99lol.originscontent.OriginsContent"
+    ]
+  },
+  "mixins": [
+    "originscontent.mixins.json",
+    {
+      "config": "originscontent.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}

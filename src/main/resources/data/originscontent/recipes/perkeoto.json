@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "originscontent:perkeo"
+  },
+  "result": "minecraft:netherite_block",
+  "count": 1
+}
