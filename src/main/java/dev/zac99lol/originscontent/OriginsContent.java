@@ -2,10 +2,8 @@ package dev.zac99lol.originscontent;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroups;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
@@ -19,7 +17,7 @@ public class OriginsContent implements ModInitializer {
     public static final Item OBSCURER_ITEM = new Item(new FabricItemSettings().rarity(Rarity.RARE));
     public static final Item SHATTERED_ORB_ITEM = new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON));
     public static final EmotionalSupportPerkeoItem EMOTIONAL_SUPPORT_PERKEO_ITEM = new EmotionalSupportPerkeoItem(new FabricItemSettings().rarity(Rarity.EPIC).maxCount(1).fireproof().equipmentSlot(stack -> EquipmentSlot.HEAD));
-    public static final Item ETERNAL_CRYSTAL_ITEM = new Item(new FabricItemSettings().rarity(Rarity.RARE));
+    public static final Item PLACEHOLDER_ITEM_0 = new Item(new FabricItemSettings());
     public static final Item PLACEHOLDER_ITEM_1 = new Item(new FabricItemSettings());
     public static final Item PLACEHOLDER_ITEM_2 = new Item(new FabricItemSettings());
     public static final Item PLACEHOLDER_ITEM_3 = new Item(new FabricItemSettings());
@@ -34,16 +32,10 @@ public class OriginsContent implements ModInitializer {
     public void onInitialize() {
         LOGGER.info("Initialising OriginsContent...");
 
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(content -> {
-            content.add(ETERNAL_CRYSTAL_ITEM);
-            content.add(OBSCURER_ITEM);
-            content.add(SHATTERED_ORB_ITEM);
-        });
-
         Registry.register(Registries.ITEM, new Identifier("originscontent", "obscurer"), OBSCURER_ITEM);
         Registry.register(Registries.ITEM, new Identifier("originscontent", "shattered_orb_of_origin"), SHATTERED_ORB_ITEM);
         Registry.register(Registries.ITEM, new Identifier("originscontent", "perkeo"), EMOTIONAL_SUPPORT_PERKEO_ITEM);
-        Registry.register(Registries.ITEM, new Identifier("originscontent", "eternal_crystal"), ETERNAL_CRYSTAL_ITEM);
+        Registry.register(Registries.ITEM, new Identifier("originscontent", "placeholder_item_0"), PLACEHOLDER_ITEM_0);
         Registry.register(Registries.ITEM, new Identifier("originscontent", "placeholder_item_1"), PLACEHOLDER_ITEM_1);
         Registry.register(Registries.ITEM, new Identifier("originscontent", "placeholder_item_2"), PLACEHOLDER_ITEM_2);
         Registry.register(Registries.ITEM, new Identifier("originscontent", "placeholder_item_3"), PLACEHOLDER_ITEM_3);
@@ -53,5 +45,6 @@ public class OriginsContent implements ModInitializer {
         Registry.register(Registries.ITEM, new Identifier("originscontent", "placeholder_item_7"), PLACEHOLDER_ITEM_7);
         Registry.register(Registries.ITEM, new Identifier("originscontent", "placeholder_item_8"), PLACEHOLDER_ITEM_8);
         Registry.register(Registries.ITEM, new Identifier("originscontent", "placeholder_item_9"), PLACEHOLDER_ITEM_9);
+
     }
 }
