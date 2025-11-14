@@ -19,7 +19,7 @@ public class OriginsContent implements ModInitializer {
     public static final Item OBSCURER_ITEM = new Item(new FabricItemSettings().rarity(Rarity.RARE));
     public static final Item SHATTERED_ORB_ITEM = new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON));
     public static final EmotionalSupportPerkeoItem EMOTIONAL_SUPPORT_PERKEO_ITEM = new EmotionalSupportPerkeoItem(new FabricItemSettings().rarity(Rarity.EPIC).maxCount(1).fireproof().equipmentSlot(stack -> EquipmentSlot.HEAD));
-    public static final Item ETERNAL_CRYSTAL_ITEM = new Item(new FabricItemSettings());
+    public static final Item ETERNAL_CRYSTAL_ITEM = new Item(new FabricItemSettings().rarity(Rarity.RARE));
     public static final Item PLACEHOLDER_ITEM_1 = new Item(new FabricItemSettings());
     public static final Item PLACEHOLDER_ITEM_2 = new Item(new FabricItemSettings());
     public static final Item PLACEHOLDER_ITEM_3 = new Item(new FabricItemSettings());
