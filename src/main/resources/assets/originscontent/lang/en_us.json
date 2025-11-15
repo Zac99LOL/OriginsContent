@@ -2,7 +2,7 @@
   "item.originscontent.obscurer": "Obscurer",
   "item.originscontent.shattered_orb_of_origin": "Shattered Orb Of Origin",
   "item.originscontent.perkeo": "Perkeo",
-  "item.originscontent.placeholder_item_0": "Placeholder Item 0",
+  "item.originscontent.achievement_item": "Achievement Item",
   "item.originscontent.placeholder_item_1": "Placeholder Item 1",
   "item.originscontent.placeholder_item_2": "Placeholder Item 2",
   "item.originscontent.placeholder_item_3": "Placeholder Item 3",
@@ -12,5 +12,6 @@
   "item.originscontent.placeholder_item_7": "Placeholder Item 7",
   "item.originscontent.placeholder_item_8": "Placeholder Item 8",
   "item.originscontent.placeholder_item_9": "Placeholder Item 9",
+  "item.originscontent.eternal_crystal": "Eternal Crystal",
   "itemTooltip.originscontent.perkeo": "Rest in peace."
 }

@@ -17,7 +17,7 @@ public class OriginsContent implements ModInitializer {
     public static final Item OBSCURER_ITEM = new Item(new FabricItemSettings().rarity(Rarity.RARE));
     public static final Item SHATTERED_ORB_ITEM = new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON));
     public static final EmotionalSupportPerkeoItem EMOTIONAL_SUPPORT_PERKEO_ITEM = new EmotionalSupportPerkeoItem(new FabricItemSettings().rarity(Rarity.EPIC).maxCount(1).fireproof().equipmentSlot(stack -> EquipmentSlot.HEAD));
-    public static final Item PLACEHOLDER_ITEM_0 = new Item(new FabricItemSettings());
+    public static final Item ETERNAL_CRYSTAL_ITEM = new Item(new FabricItemSettings());
     public static final Item PLACEHOLDER_ITEM_1 = new Item(new FabricItemSettings());
     public static final Item PLACEHOLDER_ITEM_2 = new Item(new FabricItemSettings());
     public static final Item PLACEHOLDER_ITEM_3 = new Item(new FabricItemSettings());
@@ -27,6 +27,7 @@ public class OriginsContent implements ModInitializer {
     public static final Item PLACEHOLDER_ITEM_7 = new Item(new FabricItemSettings().equipmentSlot(stack -> EquipmentSlot.CHEST));
     public static final Item PLACEHOLDER_ITEM_8 = new Item(new FabricItemSettings().equipmentSlot(stack -> EquipmentSlot.LEGS));
     public static final Item PLACEHOLDER_ITEM_9 = new Item(new FabricItemSettings().equipmentSlot(stack -> EquipmentSlot.FEET));
+    public static final Item ACHIEVEMENT_ITEM = new Item(new FabricItemSettings().rarity(Rarity.RARE).fireproof());
 
     @Override
     public void onInitialize() {
@@ -35,7 +36,7 @@ public class OriginsContent implements ModInitializer {
         Registry.register(Registries.ITEM, new Identifier("originscontent", "obscurer"), OBSCURER_ITEM);
         Registry.register(Registries.ITEM, new Identifier("originscontent", "shattered_orb_of_origin"), SHATTERED_ORB_ITEM);
         Registry.register(Registries.ITEM, new Identifier("originscontent", "perkeo"), EMOTIONAL_SUPPORT_PERKEO_ITEM);
-        Registry.register(Registries.ITEM, new Identifier("originscontent", "placeholder_item_0"), PLACEHOLDER_ITEM_0);
+        Registry.register(Registries.ITEM, new Identifier("originscontent", "eternal_crystal"), ETERNAL_CRYSTAL_ITEM);
         Registry.register(Registries.ITEM, new Identifier("originscontent", "placeholder_item_1"), PLACEHOLDER_ITEM_1);
         Registry.register(Registries.ITEM, new Identifier("originscontent", "placeholder_item_2"), PLACEHOLDER_ITEM_2);
         Registry.register(Registries.ITEM, new Identifier("originscontent", "placeholder_item_3"), PLACEHOLDER_ITEM_3);
@@ -45,6 +46,10 @@ public class OriginsContent implements ModInitializer {
         Registry.register(Registries.ITEM, new Identifier("originscontent", "placeholder_item_7"), PLACEHOLDER_ITEM_7);
         Registry.register(Registries.ITEM, new Identifier("originscontent", "placeholder_item_8"), PLACEHOLDER_ITEM_8);
         Registry.register(Registries.ITEM, new Identifier("originscontent", "placeholder_item_9"), PLACEHOLDER_ITEM_9);
+        Registry.register(Registries.ITEM, new Identifier("originscontent", "achievement_item"), ACHIEVEMENT_ITEM);
 
+        WikiCommand.init();
+
+        LOGGER.info("OriginsContent initialised!");
     }
 }
