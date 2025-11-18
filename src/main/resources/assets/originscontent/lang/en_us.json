@@ -13,5 +13,11 @@
   "item.originscontent.placeholder_item_8": "Placeholder Item 8",
   "item.originscontent.placeholder_item_9": "Placeholder Item 9",
   "item.originscontent.eternal_crystal": "Eternal Crystal",
+  "item.originscontent.enchanted_book_bundle": "Enchanted Book Bundle",
+  "itemTooltip.originscontent.bookBundle": "When unraveled (use), will give a random overleveled book.",
+  "item.originscontent.shattered_cannon": "Shattered Cannon",
+  "itemTooltip.originscontent.shatteredCannon1": "Can be used to shoot Shattered Orbs of Origins.",
+  "itemTooltip.originscontent.shatteredCannon2": "(it does what you think it does)",
+  "you're not meant to see this.originscontent.shatteredCannon": "uhhhhh dont ask",
   "itemTooltip.originscontent.perkeo": "Rest in peace."
 }

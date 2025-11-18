@@ -4,6 +4,7 @@ import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.text.ClickEvent;
 import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 
 public class WikiCommand {
     public static void init() {
@@ -12,7 +13,8 @@ public class WikiCommand {
         CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
             dispatcher.register(CommandManager.literal("wiki")
                 .executes(context -> {
-                    context.getSource().sendFeedback(() -> Text.literal("Click me to open the wiki.").styled(style -> style.withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://www.youtube.com/watch?v=dQw4w9WgXcQ")).withUnderline(true)), false);
+                    ClickEvent event = new ClickEvent(ClickEvent.Action.OPEN_URL, "https://origins.l3g85.club/");
+                    context.getSource().sendFeedback(() -> Text.literal("Click ").formatted(Formatting.AQUA).append(Text.literal("[").formatted(Formatting.AQUA).append(Text.literal("Here").formatted(Formatting.DARK_AQUA).styled(style -> style.withClickEvent(event)).append(Text.literal("]").formatted(Formatting.AQUA).append(Text.literal(" To Open the SMP Wiki!").formatted(Formatting.AQUA))))), false);
                     return 1;
                 }));
         });
