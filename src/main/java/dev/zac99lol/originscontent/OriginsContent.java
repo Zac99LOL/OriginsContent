@@ -3,9 +3,7 @@ package dev.zac99lol.originscontent;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.item.FoodComponent;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.registry.Registries;
@@ -32,7 +30,7 @@ public class OriginsContent implements ModInitializer {
     public static final Item PLACEHOLDER_ITEM_7 = new Item(new FabricItemSettings().equipmentSlot(stack -> EquipmentSlot.CHEST));
     public static final Item PLACEHOLDER_ITEM_8 = new Item(new FabricItemSettings().equipmentSlot(stack -> EquipmentSlot.LEGS));
     public static final Item PLACEHOLDER_ITEM_9 = new Item(new FabricItemSettings().equipmentSlot(stack -> EquipmentSlot.FEET));
-    public static final Item ENCHANTED_BOOK_BUNDLE_ITEM = new EnchantedBookBundleItem(new FabricItemSettings().maxDamage(1));
+    public static final Item ENCHANTED_BOOK_BUNDLE_ITEM = new EnchantedBookBundleItem(new FabricItemSettings().maxCount(16).rarity(Rarity.RARE));
     public static final Item ACHIEVEMENT_ITEM = new Item(new FabricItemSettings().rarity(Rarity.RARE).fireproof());
     public static final Item ACHIEVEMENT_USE_ITEM = new Item(new FabricItemSettings().rarity(Rarity.RARE).fireproof());
 
