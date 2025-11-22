@@ -65,6 +65,7 @@ public class OriginsContent implements ModInitializer {
         SILLY_LOGGER.info("Initialising Ballistix...");
 
         WikiCommand.init();
+        MapCommand.init();
 
         LOGGER.info("OriginsContent initialised!");
     }
