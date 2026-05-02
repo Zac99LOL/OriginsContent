@@ -1,4 +1,4 @@
-package dev.zac99lol.originscontent;
+package dev.zac99lol.originscontent.item;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
