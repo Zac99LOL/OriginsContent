@@ -61,5 +61,30 @@
       <option name="name" value="maven2" />
       <option name="url" value="https://maven.terraformersmc.com/releases/" />
     </remote-repository>
+    <remote-repository>
+      <option name="id" value="Ladysnake Libs" />
+      <option name="name" value="Ladysnake Libs" />
+      <option name="url" value="https://maven.ladysnake.org/releases" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="maven3" />
+      <option name="name" value="maven3" />
+      <option name="url" value="https://maven.cafeteria.dev" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="maven4" />
+      <option name="name" value="maven4" />
+      <option name="url" value="https://maven.jamieswhiteshirt.com/libs-release" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="maven5" />
+      <option name="name" value="maven5" />
+      <option name="url" value="https://jitpack.io" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="maven7" />
+      <option name="name" value="maven7" />
+      <option name="url" value="https://maven.terraformersmc.com/" />
+    </remote-repository>
   </component>
 </project>

@@ -1,0 +1,28 @@
+{
+  "dormant_catalyst_activate": {
+    "subtitle": "subtitles.originscontent.dormant_catalyst_activate",
+    "sounds": [
+      "block/amethyst/step1",
+      "block/amethyst/step2",
+      "block/amethyst/step3",
+      "block/amethyst/step4",
+      "block/amethyst/step5",
+      "block/amethyst/step6",
+      "block/amethyst/step7",
+      "block/amethyst/step8",
+      "block/amethyst/step9",
+      "block/amethyst/step10",
+      "block/amethyst/step11",
+      "block/amethyst/step12"
+    ]
+  },
+  "dormant_catalyst_convert": {
+      "subtitle": "subtitles.originscontent.dormant_catalyst_convert",
+      "sounds": [
+        "mob/warden/step_1",
+        "mob/warden/step_2",
+        "mob/warden/step_3",
+        "mob/warden/step_4"
+      ]
+  }
+}

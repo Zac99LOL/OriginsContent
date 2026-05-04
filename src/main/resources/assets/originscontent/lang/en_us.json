@@ -19,5 +19,7 @@
   "itemTooltip.originscontent.shatteredCannon1": "Can be used to shoot Shattered Orbs of Origins.",
   "itemTooltip.originscontent.shatteredCannon2": "(it does what you think it does)",
   "you're not meant to see this.originscontent.shatteredCannon": "uhhhhh dont ask",
-  "itemTooltip.originscontent.perkeo": "Rest in peace."
+  "itemTooltip.originscontent.perkeo": "Rest in peace.",
+  "subtitles.originscontent.dormant_catalyst_activate": "Sculk Catalyst stirs",
+  "subtitles.originscontent.dormant_catalyst_convert": "Sculk Catalyst converts"
 }
