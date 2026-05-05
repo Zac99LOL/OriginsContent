@@ -85,7 +85,7 @@ public class DormantCatalystStep {
                             ModSounds.DORMANT_CATALYST_CONVERT,
                             SoundCategory.BLOCKS,
                             2.0f,  // volume
-                            0.4f   // pitch (lower = deeper/more ominous)
+                            0.6f   // pitch (lower = deeper/more ominous)
                         );
                         return true;
                     }
