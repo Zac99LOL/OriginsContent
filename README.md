@@ -7,9 +7,6 @@ As the description says, this is ContentContent, but for Origins SMP. It adds a 
 - Shattered Orb of Origin
 
   As above, no functionality without the datapack, but with it this orb will randomise your origin.
-- Eternal Crystal
-
-  No functionality without the datapack, used to craft the [Orbital Railgun](https://modrinth.com/mod/orbital-railgun/).
 - Placeholder Item 1-9
 
   9 placeholder items with a texture I made in 15 seconds. They do nothing, and are for Harry to do his own bidding.
@@ -17,5 +14,12 @@ As the description says, this is ContentContent, but for Origins SMP. It adds a 
 - Emotional Support Perkeo
 
   It's an easter egg. What else can I say?
+- Enchanted Book Bundle
 
-None of the above are obtainable in survival*, and most will not appear in recipe viewers as they are placeholders.
+  No functionality without the datapack.
+- /wiki command
+
+  Can be configured through Cloth Config.
+- /map command
+
+  Can be configured through Cloth Config.
