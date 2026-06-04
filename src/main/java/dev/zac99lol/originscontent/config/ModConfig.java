@@ -6,7 +6,7 @@ import me.shedaniel.autoconfig.annotation.Config;
 
 @Config(name = OriginsContent.MOD_ID)
 public class ModConfig implements ConfigData {
-    public boolean wikiCommandEnabled = true;
+    public boolean wikiCommandEnabled = false;
     public boolean mapCommandEnabled = false;
 
     public String reallyAssMethodOfMakingACommentBecauseClothConfigDoesntProperlySupportIt = "This should be a valid url, e.g. https://google.com/ would pass. Also, if wikiCommandEnabled is false, this does not matter (it wont crash dw)";
