@@ -30,6 +30,7 @@ public class ModItems {
     public static final EnchantedBookBundleItem ENCHANTED_BOOK_BUNDLE_ITEM = new EnchantedBookBundleItem(new FabricItemSettings().maxCount(16).rarity(Rarity.UNCOMMON));
     public static final Item ACHIEVEMENT_ITEM = new Item(new FabricItemSettings().rarity(Rarity.RARE).fireproof());
     public static final Item ACHIEVEMENT_USE_ITEM = new Item(new FabricItemSettings().rarity(Rarity.RARE).fireproof());
+    public static final Item BLUEPRINT_ITEM = new Item(new FabricItemSettings().maxCount(1).rarity(Rarity.RARE));
 
     public static void initialize() {
         LOGGER.info("Initialising item groups...");
@@ -55,5 +56,6 @@ public class ModItems {
         Registry.register(Registries.ITEM, new Identifier(OriginsContent.MOD_ID, "enchanted_book_bundle"), ENCHANTED_BOOK_BUNDLE_ITEM);
         Registry.register(Registries.ITEM, new Identifier(OriginsContent.MOD_ID, "achievement_item"), ACHIEVEMENT_ITEM);
         Registry.register(Registries.ITEM, new Identifier(OriginsContent.MOD_ID, "achievement_item_use"), ACHIEVEMENT_USE_ITEM);
+        Registry.register(Registries.ITEM, new Identifier(OriginsContent.MOD_ID, "blueprint"), BLUEPRINT_ITEM);
     }
 }

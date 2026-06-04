@@ -22,10 +22,10 @@ public class OriginsContent implements ModInitializer {
 
         LOGGER.info("Checking configs...");
         ModConfig config = AutoConfig.getConfigHolder(ModConfig.class).getConfig();
-        if (config.wikiAddress.equals("CHANGEME") && !config.wikiCommandEnabled) {
+        if (config.wikiAddress.equals("CHANGEME") && config.wikiCommandEnabled) {
             throw new RuntimeException("[OriginsContent] Please set 'wikiAddress' in the config file before starting.");
         }
-        if (config.mapAddress.equals("CHANGEMETOO") && !config.mapCommandEnabled) {
+        if (config.mapAddress.equals("CHANGEMETOO") && config.mapCommandEnabled) {
             throw new RuntimeException("[OriginsContent] Please set 'mapAddress' in the config file before starting.");
         }
 
