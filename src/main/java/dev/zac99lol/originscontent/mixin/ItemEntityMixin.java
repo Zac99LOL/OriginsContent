@@ -1,6 +1,7 @@
 package dev.zac99lol.originscontent.mixin;
 
 import dev.zac99lol.originscontent.ModItems;
+import dev.zac99lol.originscontent.item.EmotionalSupportPerkeoItem;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.item.Items;
 import net.minecraft.item.ItemStack;
@@ -27,7 +28,7 @@ public abstract class ItemEntityMixin {
     @Inject(method = "tick", at = @At("HEAD"))
     private void captureOriginAndReturn(CallbackInfo ci) {
         ItemEntity self = (ItemEntity) (Object) this;
-        self.setNoGravity(true);
+        if (self.getStack().getItem() instanceof EmotionalSupportPerkeoItem item) self.setNoGravity(true);
 
         // Lazily capture origin on the first tick - by now this entity
         // (the real one server-side, the "ghost" one client-side) has
