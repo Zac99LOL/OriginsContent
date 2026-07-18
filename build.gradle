@@ -53,6 +53,18 @@ repositories {
     maven {
         url "https://maven.terraformersmc.com/"
     }
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = "Modrinth"
+                url = "https://api.modrinth.com/maven"
+            }
+        }
+        // forRepositories(fg.repository) // Uncomment when using ForgeGradle
+        filter {
+            includeGroup "maven.modrinth"
+        }
+    }
 }
 
 dependencies {
@@ -65,6 +77,8 @@ dependencies {
         exclude(group: "net.fabricmc.fabric-api")
     }
     modImplementation "com.github.apace100:origins-fabric:${project.origins_version}"
+    modImplementation "com.github.apace100:apoli:${project.apoli_version}"
+    modImplementation "maven.modrinth:DfvI9QGt:lxt2QwZh"
 }
 
 processResources {
