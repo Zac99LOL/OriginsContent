@@ -7,6 +7,9 @@
     "BackSlotMixin",
     "BackWeaponComponentMixin",
     "ItemEntityMixin",
+    "LivingEntityMixin",
+    "OffhandSlotMixin",
+    "ServerPlayNetworkHandlerMixin",
     "SlotMixin"
   ],
   "client": [
