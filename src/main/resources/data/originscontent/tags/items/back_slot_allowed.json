@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "#arsenal:displayable",
+    {
+      "id": "#minecraft:spear",
+      "required": false
+    },
+    {
+      "id": "faithfulmace:mace",
+      "required": false
+    }
+  ]
+}

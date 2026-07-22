@@ -42,6 +42,8 @@ public class OriginsContent implements ModInitializer {
 
         Registry.register(ApoliRegistries.ENTITY_CONDITION, new Identifier(MOD_ID, "in_black_rain"), InBlackRainCondition.getFactory());
 
+        BackWeaponInteractionGuard.init();
+
         if (config.wikiCommandEnabled) { WikiCommand.init(); }
         if (config.mapCommandEnabled) { MapCommand.init(); }
 

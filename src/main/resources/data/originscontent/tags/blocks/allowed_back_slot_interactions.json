@@ -1,0 +1,19 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:crafting_table",
+    "minecraft:furnace",
+    "minecraft:blast_furnace",
+    "minecraft:smoker",
+    "minecraft:stonecutter",
+    "minecraft:cartography_table",
+    "minecraft:smithing_table",
+    "minecraft:loom",
+    "minecraft:grindstone",
+    "minecraft:anvil",
+    "#minecraft:chests",
+    "#minecraft:shulker_boxes",
+    "minecraft:barrel",
+    "minecraft:ender_chest"
+  ]
+}
