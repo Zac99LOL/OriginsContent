@@ -149,6 +149,7 @@ configurations.all {
     resolutionStrategy.dependencySubstitution {
         // Substitute the broken Terraformers group with Modrinth's group
         // Replace 'YOUR_MODMENU_VERSION' with the actual version string (e.g., 11.0.1)
-        substitute module("com.terraformersmc:modmenu") using module("maven.modrinth:modmenu:7.1.0")
+        substitute module("com.terraformersmc:modmenu:7.1.0") using module("maven.modrinth:modmenu:7.1.0")
+        substitute module("com.terraformersmc:modmenu:6.2.1") using module("maven.modrinth:modmenu:6.2.1")
     }
 }
