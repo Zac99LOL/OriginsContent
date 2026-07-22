@@ -11,7 +11,7 @@
     "minecraft:loom",
     "minecraft:grindstone",
     "minecraft:anvil",
-    "#minecraft:chests",
+    "#c:chests",
     "#minecraft:shulker_boxes",
     "minecraft:barrel",
     "minecraft:ender_chest"
