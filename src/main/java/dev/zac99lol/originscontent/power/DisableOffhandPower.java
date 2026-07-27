@@ -8,7 +8,6 @@ import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.util.Identifier;
 
 public class DisableOffhandPower extends Power {
     public DisableOffhandPower(PowerType<?> type, LivingEntity entity) {
@@ -35,7 +34,7 @@ public class DisableOffhandPower extends Power {
     public static PowerFactory<?> getFactory() {
         return (PowerFactory<?>) Power.createSimpleFactory(
             DisableOffhandPower::new,
-            new Identifier(OriginsContent.MOD_ID, "disable_offhand")
+            OriginsContent.id("disable_offhand")
         );
     }
 }

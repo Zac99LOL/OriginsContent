@@ -54,6 +54,10 @@ public class OriginsContent implements ModInitializer {
         suppressOriginsMathLogging();
     }
 
+    public static Identifier id(String id) {
+        return Identifier.of(MOD_ID, id);
+    }
+
     private void suppressOriginsMathLogging() {
         final String loggerName = "origins-math"; // matches OriginsMath.MOD_ID exactly
 

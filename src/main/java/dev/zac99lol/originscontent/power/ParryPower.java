@@ -183,7 +183,7 @@ public class ParryPower extends CooldownPower implements Active {
 
     public static PowerFactory<?> getFactory() {
         return new PowerFactory<>(
-            new Identifier(OriginsContent.MOD_ID, "parry"),
+            OriginsContent.id("parry"),
             new SerializableData()
                 .add("parry_window", SerializableDataTypes.INT)
                 .add("key", ApoliDataTypes.BACKWARDS_COMPATIBLE_KEY, new Active.Key())

@@ -1,6 +1,7 @@
 package dev.zac99lol.originscontent.mixin.client;
 
 import com.mojang.datafixers.util.Pair;
+import dev.zac99lol.originscontent.OriginsContent;
 import dev.zac99lol.originscontent.power.DisableOffhandPower;
 import io.github.apace100.apoli.component.PowerHolderComponent;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
@@ -33,7 +34,7 @@ public abstract class HandledScreenSlotIconMixin {
             && PowerHolderComponent.hasPower(inv.player, DisableOffhandPower.class)) {
             return Pair.of(
                 PlayerScreenHandler.BLOCK_ATLAS_TEXTURE,
-                Identifier.of("originscontent", "item/disallowed_slot")
+                OriginsContent.id("item/disallowed_slot")
             );
         }
         return slot.getBackgroundSprite();
