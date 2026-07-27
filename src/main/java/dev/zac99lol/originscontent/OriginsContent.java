@@ -4,10 +4,7 @@ import dev.zac99lol.originscontent.command.MapCommand;
 import dev.zac99lol.originscontent.command.WikiCommand;
 import dev.zac99lol.originscontent.condition.InBlackRainCondition;
 import dev.zac99lol.originscontent.config.ModConfig;
-import dev.zac99lol.originscontent.power.CancelInventoryActionsPower;
-import dev.zac99lol.originscontent.power.DisableOffhandPower;
-import dev.zac99lol.originscontent.power.CancelTotemsPower;
-import dev.zac99lol.originscontent.power.ParryPower;
+import dev.zac99lol.originscontent.power.*;
 import io.github.apace100.apoli.registry.ApoliRegistries;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
@@ -40,18 +37,18 @@ public class OriginsContent implements ModInitializer {
             throw new IllegalStateException("[OriginsContent] Please set 'mapAddress' in the config file before starting.");
         }
 
+        // vanilla registering
         ModItems.initialize();
 
+        // origins / apoli shit
         Registry.register(ApoliRegistries.ENTITY_CONDITION, new Identifier(MOD_ID, "in_black_rain"), InBlackRainCondition.getFactory());
+        ModPowers.init();
 
-        Registry.register(ApoliRegistries.POWER_FACTORY, new Identifier(MOD_ID, "cancel_totems"), CancelTotemsPower.getFactory());
-        Registry.register(ApoliRegistries.POWER_FACTORY, new Identifier(MOD_ID, "disable_offhand"), DisableOffhandPower.getFactory());
-        Registry.register(ApoliRegistries.POWER_FACTORY, new Identifier(MOD_ID, "cancel_inventory_actions"), CancelInventoryActionsPower.getFactory());
-        Registry.register(ApoliRegistries.POWER_FACTORY, new Identifier(MOD_ID, "parry"), ParryPower.getFactory());
+        // other stuff
+        CancelInventoryActionsPower.init(); // cancel_inventory_actions power
+        BackWeaponInteractionGuard.init(); // back slot stuff
 
-        CancelInventoryActionsPower.init();
-        BackWeaponInteractionGuard.init();
-
+        // commands
         if (config.wikiCommandEnabled) { WikiCommand.init(); }
         if (config.mapCommandEnabled) { MapCommand.init(); }
         suppressOriginsMathLogging();
