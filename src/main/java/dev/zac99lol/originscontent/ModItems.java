@@ -9,7 +9,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 
 public class ModItems {
@@ -37,21 +36,21 @@ public class ModItems {
             t.add(SHATTERED_ORB_ITEM);
         });
 
-        Registry.register(Registries.ITEM, new Identifier(OriginsContent.MOD_ID, "obscurer"), OBSCURER_ITEM);
-        Registry.register(Registries.ITEM, new Identifier(OriginsContent.MOD_ID, "shattered_orb_of_origin"), SHATTERED_ORB_ITEM);
-        Registry.register(Registries.ITEM, new Identifier(OriginsContent.MOD_ID, "perkeo"), EMOTIONAL_SUPPORT_PERKEO_ITEM);
-        Registry.register(Registries.ITEM, new Identifier(OriginsContent.MOD_ID, "placeholder_item_1"), PLACEHOLDER_ITEM_1);
-        Registry.register(Registries.ITEM, new Identifier(OriginsContent.MOD_ID, "placeholder_item_2"), PLACEHOLDER_ITEM_2);
-        Registry.register(Registries.ITEM, new Identifier(OriginsContent.MOD_ID, "placeholder_item_3"), PLACEHOLDER_ITEM_3);
-        Registry.register(Registries.ITEM, new Identifier(OriginsContent.MOD_ID, "placeholder_item_4"), PLACEHOLDER_ITEM_4);
-        Registry.register(Registries.ITEM, new Identifier(OriginsContent.MOD_ID, "placeholder_item_5"), PLACEHOLDER_ITEM_5);
-        Registry.register(Registries.ITEM, new Identifier(OriginsContent.MOD_ID, "placeholder_item_6"), PLACEHOLDER_ITEM_6);
-        Registry.register(Registries.ITEM, new Identifier(OriginsContent.MOD_ID, "placeholder_item_7"), PLACEHOLDER_ITEM_7);
-        Registry.register(Registries.ITEM, new Identifier(OriginsContent.MOD_ID, "placeholder_item_8"), PLACEHOLDER_ITEM_8);
-        Registry.register(Registries.ITEM, new Identifier(OriginsContent.MOD_ID, "placeholder_item_9"), PLACEHOLDER_ITEM_9);
-        Registry.register(Registries.ITEM, new Identifier(OriginsContent.MOD_ID, "enchanted_book_bundle"), ENCHANTED_BOOK_BUNDLE_ITEM);
-        Registry.register(Registries.ITEM, new Identifier(OriginsContent.MOD_ID, "achievement_item"), ACHIEVEMENT_ITEM);
-        Registry.register(Registries.ITEM, new Identifier(OriginsContent.MOD_ID, "achievement_item_use"), ACHIEVEMENT_USE_ITEM);
-        Registry.register(Registries.ITEM, new Identifier(OriginsContent.MOD_ID, "blueprint"), BLUEPRINT_ITEM);
+        Registry.register(Registries.ITEM, OriginsContent.id("obscurer"), OBSCURER_ITEM);
+        Registry.register(Registries.ITEM, OriginsContent.id("shattered_orb_of_origin"), SHATTERED_ORB_ITEM);
+        Registry.register(Registries.ITEM, OriginsContent.id("perkeo"), EMOTIONAL_SUPPORT_PERKEO_ITEM);
+        Registry.register(Registries.ITEM, OriginsContent.id("placeholder_item_1"), PLACEHOLDER_ITEM_1);
+        Registry.register(Registries.ITEM, OriginsContent.id("placeholder_item_2"), PLACEHOLDER_ITEM_2);
+        Registry.register(Registries.ITEM, OriginsContent.id("placeholder_item_3"), PLACEHOLDER_ITEM_3);
+        Registry.register(Registries.ITEM, OriginsContent.id("placeholder_item_4"), PLACEHOLDER_ITEM_4);
+        Registry.register(Registries.ITEM, OriginsContent.id("placeholder_item_5"), PLACEHOLDER_ITEM_5);
+        Registry.register(Registries.ITEM, OriginsContent.id("placeholder_item_6"), PLACEHOLDER_ITEM_6);
+        Registry.register(Registries.ITEM, OriginsContent.id("placeholder_item_7"), PLACEHOLDER_ITEM_7);
+        Registry.register(Registries.ITEM, OriginsContent.id("placeholder_item_8"), PLACEHOLDER_ITEM_8);
+        Registry.register(Registries.ITEM, OriginsContent.id("placeholder_item_9"), PLACEHOLDER_ITEM_9);
+        Registry.register(Registries.ITEM, OriginsContent.id("enchanted_book_bundle"), ENCHANTED_BOOK_BUNDLE_ITEM);
+        Registry.register(Registries.ITEM, OriginsContent.id("achievement_item"), ACHIEVEMENT_ITEM);
+        Registry.register(Registries.ITEM, OriginsContent.id("achievement_item_use"), ACHIEVEMENT_USE_ITEM);
+        Registry.register(Registries.ITEM, OriginsContent.id("blueprint"), BLUEPRINT_ITEM);
     }
 }

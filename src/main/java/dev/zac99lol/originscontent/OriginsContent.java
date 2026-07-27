@@ -41,7 +41,7 @@ public class OriginsContent implements ModInitializer {
         ModItems.initialize();
 
         // origins / apoli shit
-        Registry.register(ApoliRegistries.ENTITY_CONDITION, new Identifier(MOD_ID, "in_black_rain"), InBlackRainCondition.getFactory());
+        Registry.register(ApoliRegistries.ENTITY_CONDITION, id("in_black_rain"), InBlackRainCondition.getFactory());
         ModPowers.init();
 
         // other stuff
@@ -52,6 +52,10 @@ public class OriginsContent implements ModInitializer {
         if (config.wikiCommandEnabled) { WikiCommand.init(); }
         if (config.mapCommandEnabled) { MapCommand.init(); }
         suppressOriginsMathLogging();
+    }
+
+    public static Identifier id(String id) {
+        return Identifier.of(MOD_ID, id);
     }
 
     private void suppressOriginsMathLogging() {

@@ -9,12 +9,11 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.ActionResult;
-import net.minecraft.util.Identifier;
 
 public class BackWeaponInteractionGuard {
     public static final TagKey<Block> UI_WHITELIST = TagKey.of(
         RegistryKeys.BLOCK,
-        Identifier.of(OriginsContent.MOD_ID, "allowed_back_slot_interactions")
+        OriginsContent.id("allowed_back_slot_interactions")
     );
 
     public static void init() {

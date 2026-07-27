@@ -2,6 +2,7 @@ package dev.zac99lol.originscontent.mixin.client;
 
 import com.mojang.datafixers.util.Pair;
 import dev.doctor4t.arsenal.util.BackSlot;
+import dev.zac99lol.originscontent.OriginsContent;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.screen.PlayerScreenHandler;
 import net.minecraft.screen.slot.Slot;
@@ -12,11 +13,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-/**
- * Cycles the empty back slot's ghost icon through a fixed set of weapon
- * silhouettes rather than showing a single static scythe outline.
- * Client-only (MinecraftClient only exists client-side).
- */
 @Mixin(Slot.class)
 public abstract class BackSlotMixin {
 
@@ -42,7 +38,7 @@ public abstract class BackSlotMixin {
 
         cir.setReturnValue(Pair.of(
             PlayerScreenHandler.BLOCK_ATLAS_TEXTURE,
-            Identifier.of("originscontent", "item/empty/" + weapon)
+            OriginsContent.id("item/empty/" + weapon)
         ));
     }
 }

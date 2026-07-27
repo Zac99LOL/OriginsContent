@@ -6,7 +6,6 @@ import io.github.apace100.apoli.power.factory.condition.ConditionFactory;
 import io.github.apace100.calio.data.SerializableData;
 import net.minecraft.entity.Entity;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.util.Identifier;
 
 public class InBlackRainCondition {
     public static boolean condition(Entity entity) {
@@ -19,7 +18,7 @@ public class InBlackRainCondition {
 
     public static ConditionFactory<Entity> getFactory() {
         return new ConditionFactory<>(
-            new Identifier(OriginsContent.MOD_ID, "in_black_rain"),
+            OriginsContent.id("in_black_rain"),
             new SerializableData(),
             (data, entity) -> condition(entity)
         );

@@ -10,7 +10,6 @@ import io.github.apace100.calio.data.SerializableDataTypes;
 import net.fabricmc.fabric.api.event.client.player.ClientPickBlockApplyCallback;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Identifier;
 
 public class CancelInventoryActionsPower extends Power {
     private final boolean changeHotbarSlot;
@@ -51,7 +50,7 @@ public class CancelInventoryActionsPower extends Power {
 
     public static PowerFactory<CancelInventoryActionsPower> getFactory() {
         return new PowerFactory<CancelInventoryActionsPower>(
-            Identifier.of(OriginsContent.MOD_ID, "cancel_inventory_actions"),
+            OriginsContent.id("cancel_inventory_actions"),
             new SerializableData()
                 .add("change_hotbar_slot", SerializableDataTypes.BOOLEAN, true)
                 .add("move_item_in_gui", SerializableDataTypes.BOOLEAN, true)
