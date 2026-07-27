@@ -12,8 +12,6 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 
-import static dev.zac99lol.originscontent.OriginsContent.LOGGER;
-
 public class ModItems {
     public static final Item OBSCURER_ITEM = new Item(new FabricItemSettings().rarity(Rarity.RARE));
     public static final Item SHATTERED_ORB_ITEM = new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON));
@@ -33,14 +31,12 @@ public class ModItems {
     public static final Item BLUEPRINT_ITEM = new Item(new FabricItemSettings().maxCount(1).rarity(Rarity.RARE));
 
     public static void initialize() {
-        LOGGER.info("Initialising item groups...");
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(t -> {
             t.add(ENCHANTED_BOOK_BUNDLE_ITEM);
             t.add(OBSCURER_ITEM);
             t.add(SHATTERED_ORB_ITEM);
         });
 
-        LOGGER.info("Initialising items...");
         Registry.register(Registries.ITEM, new Identifier(OriginsContent.MOD_ID, "obscurer"), OBSCURER_ITEM);
         Registry.register(Registries.ITEM, new Identifier(OriginsContent.MOD_ID, "shattered_orb_of_origin"), SHATTERED_ORB_ITEM);
         Registry.register(Registries.ITEM, new Identifier(OriginsContent.MOD_ID, "perkeo"), EMOTIONAL_SUPPORT_PERKEO_ITEM);

@@ -7,6 +7,7 @@ import dev.zac99lol.originscontent.config.ModConfig;
 import dev.zac99lol.originscontent.power.CancelInventoryActionsPower;
 import dev.zac99lol.originscontent.power.DisableOffhandPower;
 import dev.zac99lol.originscontent.power.CancelTotemsPower;
+import dev.zac99lol.originscontent.power.ParryPower;
 import io.github.apace100.apoli.registry.ApoliRegistries;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
@@ -29,10 +30,8 @@ public class OriginsContent implements ModInitializer {
     public void onInitialize() {
         LOGGER.info("Initialising OriginsContent...");
 
-        LOGGER.info("Registering configs...");
         AutoConfig.register(ModConfig.class, GsonConfigSerializer::new);
 
-        LOGGER.info("Checking configs...");
         ModConfig config = AutoConfig.getConfigHolder(ModConfig.class).getConfig();
         if (config.wikiAddress.equals("CHANGEME") && config.wikiCommandEnabled) {
             throw new RuntimeException("[OriginsContent] Please set 'wikiAddress' in the config file before starting.");
@@ -48,17 +47,14 @@ public class OriginsContent implements ModInitializer {
         Registry.register(ApoliRegistries.POWER_FACTORY, new Identifier(MOD_ID, "cancel_totems"), CancelTotemsPower.getFactory());
         Registry.register(ApoliRegistries.POWER_FACTORY, new Identifier(MOD_ID, "disable_offhand"), DisableOffhandPower.getFactory());
         Registry.register(ApoliRegistries.POWER_FACTORY, new Identifier(MOD_ID, "cancel_inventory_actions"), CancelInventoryActionsPower.getFactory());
+        Registry.register(ApoliRegistries.POWER_FACTORY, new Identifier(MOD_ID, "parry"), ParryPower.getFactory());
 
         CancelInventoryActionsPower.init();
         BackWeaponInteractionGuard.init();
 
         if (config.wikiCommandEnabled) { WikiCommand.init(); }
         if (config.mapCommandEnabled) { MapCommand.init(); }
-
-        LOGGER.info("OriginsContent initialised!");
-        LOGGER.info("Fucking OriginsMath's logger...");
         suppressOriginsMathLogging();
-        LOGGER.info("It worked?");
     }
 
     private void suppressOriginsMathLogging() {

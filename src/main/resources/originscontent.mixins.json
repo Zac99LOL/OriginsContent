@@ -7,6 +7,7 @@
     "BackWeaponComponentMixin",
     "ItemEntityMixin",
     "LivingEntityMixin",
+    "LivingEntityParryMixin",
     "OffhandSlotMixin",
     "ScreenHandlerMixin",
     "ServerPlayNetworkHandlerMixin",

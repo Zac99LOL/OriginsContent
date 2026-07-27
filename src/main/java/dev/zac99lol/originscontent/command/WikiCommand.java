@@ -1,6 +1,5 @@
 package dev.zac99lol.originscontent.command;
 
-import dev.zac99lol.originscontent.OriginsContent;
 import dev.zac99lol.originscontent.config.ModConfig;
 import me.shedaniel.autoconfig.AutoConfig;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
@@ -11,7 +10,6 @@ import net.minecraft.util.Formatting;
 
 public class WikiCommand {
     public static void init() {
-        OriginsContent.LOGGER.info("Registering /wiki command...");
 
         ModConfig config = AutoConfig.getConfigHolder(ModConfig.class).getConfig();
 
