@@ -1,9 +1,6 @@
 package dev.zac99lol.originscontent;
 
-import dev.zac99lol.originscontent.power.CancelInventoryActionsPower;
-import dev.zac99lol.originscontent.power.CancelTotemsPower;
-import dev.zac99lol.originscontent.power.DisableOffhandPower;
-import dev.zac99lol.originscontent.power.ParryPower;
+import dev.zac99lol.originscontent.power.*;
 import io.github.apace100.apoli.registry.ApoliRegistries;
 import net.minecraft.registry.Registry;
 
@@ -13,5 +10,7 @@ public abstract class ModPowers {
         Registry.register(ApoliRegistries.POWER_FACTORY, OriginsContent.id("disable_offhand"), DisableOffhandPower.getFactory());
         Registry.register(ApoliRegistries.POWER_FACTORY, OriginsContent.id("cancel_inventory_actions"), CancelInventoryActionsPower.getFactory());
         Registry.register(ApoliRegistries.POWER_FACTORY, OriginsContent.id("parry"), ParryPower.getFactory());
+        Registry.register(ApoliRegistries.POWER_FACTORY, OriginsContent.id("prevent_sprinting_particles"), PreventSprintingParticlesPower.getFactory());
+        Registry.register(ApoliRegistries.POWER_FACTORY, OriginsContent.id("pose"), PosePower.getFactory());
     }
 }
