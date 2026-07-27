@@ -5,7 +5,8 @@
   "compatibilityLevel": "JAVA_17",
   "client": [
     "BackSlotMixin",
-    "HandledScreenSlotIconMixin"
+    "HandledScreenSlotIconMixin",
+    "MinecraftClientMixin"
   ],
   "injectors": {
     "defaultRequire": 1

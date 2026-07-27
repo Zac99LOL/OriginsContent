@@ -4,6 +4,7 @@ import dev.zac99lol.originscontent.command.MapCommand;
 import dev.zac99lol.originscontent.command.WikiCommand;
 import dev.zac99lol.originscontent.condition.InBlackRainCondition;
 import dev.zac99lol.originscontent.config.ModConfig;
+import dev.zac99lol.originscontent.power.CancelInventoryActionsPower;
 import dev.zac99lol.originscontent.power.DisableOffhandPower;
 import dev.zac99lol.originscontent.power.CancelTotemsPower;
 import io.github.apace100.apoli.registry.ApoliRegistries;
@@ -45,9 +46,10 @@ public class OriginsContent implements ModInitializer {
         Registry.register(ApoliRegistries.ENTITY_CONDITION, new Identifier(MOD_ID, "in_black_rain"), InBlackRainCondition.getFactory());
 
         Registry.register(ApoliRegistries.POWER_FACTORY, new Identifier(MOD_ID, "cancel_totems"), CancelTotemsPower.getFactory());
-
         Registry.register(ApoliRegistries.POWER_FACTORY, new Identifier(MOD_ID, "disable_offhand"), DisableOffhandPower.getFactory());
+        Registry.register(ApoliRegistries.POWER_FACTORY, new Identifier(MOD_ID, "cancel_inventory_actions"), CancelInventoryActionsPower.getFactory());
 
+        CancelInventoryActionsPower.init();
         BackWeaponInteractionGuard.init();
 
         if (config.wikiCommandEnabled) { WikiCommand.init(); }

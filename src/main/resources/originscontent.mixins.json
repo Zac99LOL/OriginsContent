@@ -8,11 +8,13 @@
     "ItemEntityMixin",
     "LivingEntityMixin",
     "OffhandSlotMixin",
+    "ScreenHandlerMixin",
     "ServerPlayNetworkHandlerMixin",
     "SlotMixin"
   ],
   "client": [
-    "ItemEntityClientMixin"
+    "ItemEntityClientMixin",
+    "PlayerInventoryMixin"
   ],
   "injectors": {
     "defaultRequire": 1

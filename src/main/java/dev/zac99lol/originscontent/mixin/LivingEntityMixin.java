@@ -9,11 +9,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-/**
- * Prevents totem of undying activation for entities holding the
- * originscontent:cancel_totems power. Cancels at HEAD so the totem is
- * never consumed - it stays in the entity's inventory unused.
- */
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin {
 

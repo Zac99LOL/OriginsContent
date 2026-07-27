@@ -6,23 +6,11 @@ import net.fabricmc.fabric.api.event.player.UseEntityCallback;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Identifier;
 
-/**
- * Patches dupe glitches caused by Arsenal's back weapon slot being able to
- * simultaneously register as the player's held hotbar item. When that
- * happens, vanilla interaction code can consume/transfer the back-slot
- * item without ever clearing it, duplicating it.
- * <p>
- * This blocks the two known transfer vectors (block placement, non-player
- * entity interaction e.g. armor stands) while a back weapon is held.
- * Combat and player-to-player interaction are intentionally untouched.
- * Blocks in {@link #UI_WHITELIST} (crafting table, furnaces, chests, etc)
- * are exempt since their interaction only opens a UI and never consumes
- * the held item.
- */
 public class BackWeaponInteractionGuard {
     public static final TagKey<Block> UI_WHITELIST = TagKey.of(
         RegistryKeys.BLOCK,
