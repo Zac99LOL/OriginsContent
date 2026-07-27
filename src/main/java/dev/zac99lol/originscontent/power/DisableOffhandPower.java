@@ -10,16 +10,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Identifier;
 
-/**
- * Marker power - while active, prevents items from being placed into the
- * offhand slot (see PlayerInventoryMixin). Swap-hands keybind presses
- * still reach the server normally so Origins abilities bound to that key
- * keep working - only the actual item swap silently fails.
- * <p>
- * On gain, evicts any item already in the offhand into the main
- * inventory, or drops it (owner-locked, like /give's overflow behavior)
- * if there's no room.
- */
 public class DisableOffhandPower extends Power {
     public DisableOffhandPower(PowerType<?> type, LivingEntity entity) {
         super(type, entity);
