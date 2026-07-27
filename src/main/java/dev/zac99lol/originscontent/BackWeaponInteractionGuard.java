@@ -24,7 +24,7 @@ public class BackWeaponInteractionGuard {
             if (world.isClient) return ActionResult.PASS;
             if (!BackWeaponComponent.isHoldingBackWeapon(player)) return ActionResult.PASS;
             Block block = world.getBlockState(hitResult.getBlockPos()).getBlock();
-            if (block.getRegistryEntry().isIn(UI_WHITELIST)) return ActionResult.PASS;
+            if (RegistryEntry.of(block).isIn(UI_WHITELIST)) return ActionResult.PASS;
             return ActionResult.FAIL;
         });
 
