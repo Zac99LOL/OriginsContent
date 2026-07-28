@@ -5,11 +5,8 @@
   "compatibilityLevel": "JAVA_17",
   "client": [
     "BackSlotMixin",
-    "BipedEntityModelMixin",
     "HandledScreenSlotIconMixin",
-    "LivingEntityRendererMixin",
-    "MinecraftClientMixin",
-    "PlayerEntityRendererMixin"
+    "MinecraftClientMixin"
   ],
   "injectors": {
     "defaultRequire": 1

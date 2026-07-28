@@ -5,12 +5,10 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "BackWeaponComponentMixin",
-    "EntityMixin",
     "ItemEntityMixin",
     "LivingEntityMixin",
     "LivingEntityParryMixin",
     "OffhandSlotMixin",
-    "PlayerEntityMixin",
     "ScreenHandlerMixin",
     "ServerPlayNetworkHandlerMixin",
     "SlotMixin"
