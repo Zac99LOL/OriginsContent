@@ -24,6 +24,7 @@ public class EmotionalSupportPerkeoItem extends Item {
     private static final UUID ZAC_UUID = UUID.fromString("20aaa00a-d216-4ed8-9a3b-bd8a5638210a");
     private static final UUID HARRY_UUID = UUID.fromString("bd6f0aa4-dc8b-4a44-b1e5-36b7b68cc255");
     private static final UUID NATHAN_UUID = UUID.fromString("c90f16a6-60d2-4813-a6b4-15fc81971a03");
+    private static final UUID OLLIE_UUID = UUID.fromString("6c09692f-aa94-4233-8328-a9ba62b8ff43");
     private static final int MAX_COOLDOWN = 20;
     private static final String COOLDOWN_KEY = "PerkeoCooldown";
 
@@ -46,14 +47,15 @@ public class EmotionalSupportPerkeoItem extends Item {
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         if (heldByUUID(stack, ZAC_UUID)) tooltip.add(Text.literal("Hi Zac!").formatted(Formatting.DARK_AQUA));
-        tooltip.add(Text.translatable("itemTooltip.originscontent.perkeo").formatted(Formatting.DARK_GRAY));
         if (heldByUUID(stack, HARRY_UUID)) tooltip.add(Text.literal("Hi Harry!").formatted(Formatting.GOLD));
         if (heldByUUID(stack, NATHAN_UUID)) tooltip.add(Text.literal("Hi Nathan!").formatted(Formatting.LIGHT_PURPLE));
+        if (heldByUUID(stack, OLLIE_UUID)) tooltip.add(Text.literal("Hello, Olified.").formatted(Formatting.DARK_BLUE));
+        tooltip.add(Text.translatable("itemTooltip.originscontent.perkeo").formatted(Formatting.DARK_GRAY));
     }
 
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
-        if (!(entity instanceof PlayerEntity player)) {
+        if (!(entity instanceof PlayerEntity)) {
             return;
         }
 
