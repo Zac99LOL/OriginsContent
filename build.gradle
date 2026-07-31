@@ -99,7 +99,7 @@ dependencies {
     modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-world:${project.cca_version}"
     modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-item:${project.cca_version}"
 
-    modImplementation include("com.simibubi.create:create-fabric:6.0.8.1+build.1744")
+    modImplementation include("com.simibubi.create:create-fabric:6.0.8.1+build.1744-mc1.20.1")
 }
 
 processResources {
