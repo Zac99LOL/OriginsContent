@@ -32,10 +32,5 @@
     "fabric": "*",
     "minecraft": "${minecraft_version}",
     "cloth-config": "*"
-  },
-  "jars": [
-    {
-      "file": "META-INF/jars/create-fabric-6.0.8.1+build.1744-mc1.20.1.jar"
-    }
-  ]
+  }
 }
