@@ -65,19 +65,19 @@ repositories {
         }
     }
     maven {
-        "https://mvn.devos.one/snapshots/"
+        url "https://mvn.devos.one/snapshots/"
     }
     maven {
-        "https://mvn.devos.one/releases/"
+        url "https://mvn.devos.one/releases/"
     }
     maven {
-        "https://maven.createmod.net"
+        url "https://maven.createmod.net"
     }
     maven {
-        "https://raw.githubusercontent.com/Fuzss/modresources/main/maven"
+        url "https://raw.githubusercontent.com/Fuzss/modresources/main/maven"
     }
     maven {
-        "https://maven.jamieswhiteshirt.com/libs-release"
+        url "https://maven.jamieswhiteshirt.com/libs-release"
     }
 }
 
