@@ -64,6 +64,21 @@ repositories {
             includeGroup "maven.modrinth"
         }
     }
+    maven {
+        "https://mvn.devos.one/snapshots/"
+    }
+    maven {
+        "https://mvn.devos.one/releases/"
+    }
+    maven {
+        "https://maven.createmod.net"
+    }
+    maven {
+        "https://raw.githubusercontent.com/Fuzss/modresources/main/maven"
+    }
+    maven {
+        "https://maven.jamieswhiteshirt.com/libs-release"
+    }
 }
 
 dependencies {
@@ -83,6 +98,8 @@ dependencies {
     modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-entity:${project.cca_version}"
     modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-world:${project.cca_version}"
     modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-item:${project.cca_version}"
+
+    modImplementation include("com.simibubi.create:create-fabric:6.0.8.1+build.1744")
 }
 
 processResources {
