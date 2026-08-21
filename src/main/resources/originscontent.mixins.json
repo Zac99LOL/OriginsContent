@@ -8,6 +8,7 @@
     "ItemEntityMixin",
     "LivingEntityMixin",
     "LivingEntityParryMixin",
+    "LivingEntityReflectDmgMixin",
     "OffhandSlotMixin",
     "ScreenHandlerMixin",
     "ServerPlayNetworkHandlerMixin",

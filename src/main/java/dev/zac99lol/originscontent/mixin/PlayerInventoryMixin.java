@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(PlayerInventory.class)
-public class PlayerInventoryMixin {
+public abstract class PlayerInventoryMixin {
 
     @Final
     @Shadow public net.minecraft.entity.player.PlayerEntity player;
