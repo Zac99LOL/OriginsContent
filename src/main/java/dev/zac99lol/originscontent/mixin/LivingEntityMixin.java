@@ -11,7 +11,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin {
-
     @Inject(method = "tryUseTotem", at = @At("HEAD"), cancellable = true)
     private void originscontent$cancelTotems(DamageSource source, CallbackInfoReturnable<Boolean> cir) {
         LivingEntity self = (LivingEntity) (Object) this;

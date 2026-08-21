@@ -43,6 +43,7 @@ public class OriginsContent implements ModInitializer {
         // origins / apoli shit
         Registry.register(ApoliRegistries.ENTITY_CONDITION, id("in_black_rain"), InBlackRainCondition.getFactory());
         ModPowers.init();
+        ModActions.init();
 
         // other stuff
         CancelInventoryActionsPower.init(); // cancel_inventory_actions power
