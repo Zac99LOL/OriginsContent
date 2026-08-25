@@ -9,6 +9,7 @@ public abstract class ModPowers {
         Registry.register(ApoliRegistries.POWER_FACTORY, OriginsContent.id("cancel_totems"), CancelTotemsPower.getFactory());
         Registry.register(ApoliRegistries.POWER_FACTORY, OriginsContent.id("disable_offhand"), DisableOffhandPower.getFactory());
         Registry.register(ApoliRegistries.POWER_FACTORY, OriginsContent.id("cancel_inventory_actions"), CancelInventoryActionsPower.getFactory());
+        CancelInventoryActionsPower.init();
         Registry.register(ApoliRegistries.POWER_FACTORY, OriginsContent.id("parry"), ParryPower.getFactory());
         Registry.register(ApoliRegistries.POWER_FACTORY, OriginsContent.id("reflect_dmg"), ReflectDmgPower.getFactory());
     }
