@@ -7,7 +7,7 @@
   "client": [
     "back_slot.BackSlotMixin",
     "disable_offhand_power.HandledScreenSlotIconMixin",
-    "MinecraftClientMixin"
+    "cancel_inventory_actions_power.MinecraftClientMixin"
   ],
   "injectors": {
     "defaultRequire": 1
