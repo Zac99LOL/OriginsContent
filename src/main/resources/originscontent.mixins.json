@@ -4,19 +4,20 @@
   "package": "dev.zac99lol.originscontent.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "BackWeaponComponentMixin",
-    "ItemEntityMixin",
-    "LivingEntityMixin",
-    "LivingEntityParryMixin",
-    "LivingEntityReflectDmgMixin",
-    "OffhandSlotMixin",
-    "ScreenHandlerMixin",
-    "ServerPlayNetworkHandlerMixin",
-    "SlotMixin"
+    "cancel_totems_power.LivingEntityMixin",
+    "parry_power.LivingEntityParryMixin",
+    "reflect_dmg_power.LivingEntityReflectDmgMixin",
+    "cancel_inventory_actions_power.OffhandSlotMixin",
+    "cancel_inventory_actions_power.ScreenHandlerMixin",
+    "cancel_inventory_actions_power.ServerPlayNetworkHandlerMixin",
+    "back_slot.SlotMixin",
+    "back_slot.BackWeaponComponentMixin",
+    "cancel_inventory_actions_power.ItemEntityMixin",
+    "perkeo.ItemEntityMixin"
   ],
   "client": [
-    "ItemEntityClientMixin",
-    "PlayerInventoryMixin"
+    "cancel_inventory_actions_power.PlayerInventoryMixin",
+    "perkeo.ItemEntityClientMixin"
   ],
   "injectors": {
     "defaultRequire": 1

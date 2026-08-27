@@ -1,4 +1,4 @@
-package dev.zac99lol.originscontent.mixin;
+package dev.zac99lol.originscontent.mixin.cancel_inventory_actions_power;
 
 import dev.zac99lol.originscontent.power.CancelInventoryActionsPower;
 import io.github.apace100.apoli.component.PowerHolderComponent;

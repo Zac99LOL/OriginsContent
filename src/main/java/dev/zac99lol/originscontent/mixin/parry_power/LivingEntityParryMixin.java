@@ -1,6 +1,6 @@
-package dev.zac99lol.originscontent.mixin;
+package dev.zac99lol.originscontent.mixin.parry_power;
 
-import dev.zac99lol.originscontent.power.ReflectDmgPower;
+import dev.zac99lol.originscontent.power.ParryPower;
 import io.github.apace100.apoli.component.PowerHolderComponent;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
@@ -14,23 +14,32 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(LivingEntity.class)
-public abstract class LivingEntityReflectDmgMixin {
+public abstract class LivingEntityParryMixin {
     @Inject(method = "damage", at = @At("HEAD"), cancellable = true)
-    private void originscontent$reflect(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
+    private void originscontent$parry(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
         LivingEntity self = (LivingEntity) (Object) this;
 
-        ReflectDmgPower power = PowerHolderComponent.getPowers(self, ReflectDmgPower.class).stream().filter(p -> p.matchesDamageCondition(source, amount)).findFirst().orElse(null);
+        ParryPower power = PowerHolderComponent.getPowers(self, ParryPower.class)
+            .stream()
+            .filter(p -> p.isWindowActive() && p.matchesDamageCondition(source, amount))
+            .findFirst()
+            .orElse(null);
 
-        if (power == null) return;
+        if (power == null) {
+            return;
+        }
 
         Entity attacker = source.getAttacker();
 
-        if (attacker instanceof LivingEntity && power.matchesReflectCondition(source, amount)) {
+        if (power.shouldReflect()
+            && attacker instanceof LivingEntity
+            && power.matchesReflectCondition(source, amount)) {
+
             float reflectedAmount = power.applyReflectModifier(amount);
             Identifier damageTypeId = power.getReflectDamageType();
             DamageSource reflectSource = damageTypeId != null
                 ? self.getDamageSources().create(
-                    RegistryKey.of(RegistryKeys.DAMAGE_TYPE, damageTypeId),
+                RegistryKey.of(RegistryKeys.DAMAGE_TYPE, damageTypeId),
                 self, self)
                 : self.getDamageSources().mobAttack(self);
 
