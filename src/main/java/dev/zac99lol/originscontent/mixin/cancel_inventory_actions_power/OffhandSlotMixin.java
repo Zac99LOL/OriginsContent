@@ -1,4 +1,4 @@
-package dev.zac99lol.originscontent.mixin;
+package dev.zac99lol.originscontent.mixin.cancel_inventory_actions_power;
 
 import dev.zac99lol.originscontent.power.DisableOffhandPower;
 import io.github.apace100.apoli.component.PowerHolderComponent;
@@ -10,16 +10,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-/**
- * Blocks GUI insertion into the offhand slot via canInsert, which
- * vanilla checks before any item movement happens (unlike setStack,
- * which is a raw write with no pre-check - see
- * ServerPlayNetworkHandlerMixin for why that matters for the keybind path).
- * The ghost-icon override lives separately in
- * HandledScreenSlotIconMixin, since the offhand slot's
- * getBackgroundSprite() is overridden on its own anonymous Slot
- * subclass and can't be reached by mixing the base Slot class.
- */
 @Mixin(Slot.class)
 public abstract class OffhandSlotMixin {
 

@@ -1,11 +1,8 @@
-package dev.zac99lol.originscontent.mixin;
+package dev.zac99lol.originscontent.mixin.perkeo;
 
 import dev.zac99lol.originscontent.ModItems;
 import dev.zac99lol.originscontent.item.EmotionalSupportPerkeoItem;
-import dev.zac99lol.originscontent.power.CancelInventoryActionsPower;
-import io.github.apace100.apoli.component.PowerHolderComponent;
 import net.minecraft.entity.ItemEntity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.MathHelper;
@@ -79,12 +76,5 @@ public abstract class ItemEntityMixin {
 
         entity.setNoGravity(true);
         this.returningToOrigin = true;
-    }
-
-    @Inject(method = "onPlayerCollision", at = @At("HEAD"), cancellable = true)
-    private void originscontent$blockPickup(PlayerEntity player, CallbackInfo ci) {
-        PowerHolderComponent.getPowers(player, CancelInventoryActionsPower.class)
-            .stream().filter(CancelInventoryActionsPower::blocksPickup)
-            .findFirst().ifPresent(power -> ci.cancel());
     }
 }

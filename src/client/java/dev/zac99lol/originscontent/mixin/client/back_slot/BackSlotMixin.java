@@ -1,4 +1,4 @@
-package dev.zac99lol.originscontent.mixin.client;
+package dev.zac99lol.originscontent.mixin.client.back_slot;
 
 import com.mojang.datafixers.util.Pair;
 import dev.doctor4t.arsenal.util.BackSlot;

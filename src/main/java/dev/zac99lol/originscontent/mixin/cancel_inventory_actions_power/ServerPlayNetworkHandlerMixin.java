@@ -1,7 +1,6 @@
-package dev.zac99lol.originscontent.mixin;
+package dev.zac99lol.originscontent.mixin.cancel_inventory_actions_power;
 
 import dev.zac99lol.originscontent.power.CancelInventoryActionsPower;
-import dev.zac99lol.originscontent.power.DisableOffhandPower;
 import io.github.apace100.apoli.component.PowerHolderComponent;
 import net.minecraft.network.packet.c2s.play.PlayerActionC2SPacket;
 import net.minecraft.network.packet.c2s.play.UpdateSelectedSlotC2SPacket;
@@ -19,14 +18,8 @@ public abstract class ServerPlayNetworkHandlerMixin {
     @Shadow public ServerPlayerEntity player;
 
     @Inject(method = "onPlayerAction", at = @At("HEAD"), cancellable = true)
-    private void originscontent$blockPlayerActions(PlayerActionC2SPacket packet, CallbackInfo ci) {
+    private void originscontent$blockDroppingItems(PlayerActionC2SPacket packet, CallbackInfo ci) {
         PlayerActionC2SPacket.Action action = packet.getAction();
-
-        if (action == PlayerActionC2SPacket.Action.SWAP_ITEM_WITH_OFFHAND
-            && PowerHolderComponent.hasPower(player, DisableOffhandPower.class)) {
-            ci.cancel();
-            return;
-        }
 
         if ((action == PlayerActionC2SPacket.Action.DROP_ITEM
             || action == PlayerActionC2SPacket.Action.DROP_ALL_ITEMS)

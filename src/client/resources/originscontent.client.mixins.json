@@ -5,8 +5,8 @@
   "compatibilityLevel": "JAVA_17",
   "priority": 10000,
   "client": [
-    "BackSlotMixin",
-    "HandledScreenSlotIconMixin",
+    "back_slot.BackSlotMixin",
+    "disable_offhand_power.HandledScreenSlotIconMixin",
     "MinecraftClientMixin"
   ],
   "injectors": {

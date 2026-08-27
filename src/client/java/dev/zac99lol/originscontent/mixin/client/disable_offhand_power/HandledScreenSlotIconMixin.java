@@ -1,4 +1,4 @@
-package dev.zac99lol.originscontent.mixin.client;
+package dev.zac99lol.originscontent.mixin.client.disable_offhand_power;
 
 import com.mojang.datafixers.util.Pair;
 import dev.zac99lol.originscontent.OriginsContent;

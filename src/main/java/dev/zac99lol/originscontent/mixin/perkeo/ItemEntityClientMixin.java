@@ -1,4 +1,4 @@
-package dev.zac99lol.originscontent.mixin;
+package dev.zac99lol.originscontent.mixin.perkeo;
 
 import dev.zac99lol.originscontent.item.EmotionalSupportPerkeoItem;
 import net.minecraft.entity.ItemEntity;
