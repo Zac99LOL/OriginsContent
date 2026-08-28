@@ -40,7 +40,7 @@ public class EmotionalSupportPerkeoItem extends Item {
         if (OriginsContent.heldByUUID(stack, OriginsContent.UUIDs.SlightlyShorter)) tooltip.add(Text.literal("Hi Harry!").formatted(Formatting.GOLD));
         if (OriginsContent.heldByUUID(stack, OriginsContent.UUIDs.Astrulux)) tooltip.add(Text.literal("Hi Nathan!").formatted(Formatting.LIGHT_PURPLE));
         if (OriginsContent.heldByUUID(stack, OriginsContent.UUIDs.Olified)) tooltip.add(Text.literal("Hello, Olified.").formatted(Formatting.DARK_BLUE));
-        if (OriginsContent.heldByUUID(stack, OriginsContent.UUIDs.oxf957)) tooltip.add(Text.literal("Hi, oxf!").formatted(Formatting.ORANGE));
+        if (OriginsContent.heldByUUID(stack, OriginsContent.UUIDs.oxf957)) tooltip.add(Text.literal("Hi, oxf!").formatted(Formatting.DARK_AQUA));
         tooltip.add(Text.translatable("itemTooltip.originscontent.perkeo").formatted(Formatting.DARK_GRAY));
     }
 
