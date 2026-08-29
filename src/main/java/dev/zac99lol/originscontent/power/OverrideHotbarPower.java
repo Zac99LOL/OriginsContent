@@ -2,9 +2,11 @@ package dev.zac99lol.originscontent.power;
 
 import dev.zac99lol.originscontent.OriginsContent;
 import io.github.apace100.apoli.component.PowerHolderComponent;
+import io.github.apace100.apoli.data.ApoliDataTypes;
 import io.github.apace100.apoli.power.Power;
 import io.github.apace100.apoli.power.PowerType;
 import io.github.apace100.apoli.power.factory.PowerFactory;
+import io.github.apace100.apoli.power.factory.condition.ConditionFactory;
 import io.github.apace100.calio.data.SerializableData;
 import io.github.apace100.calio.data.SerializableDataTypes;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
@@ -18,31 +20,33 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import org.jetbrains.annotations.Nullable;
 
 public class OverrideHotbarPower extends Power {
-    private final ItemStack[] overrides = new ItemStack[10];
+    private final HotbarOverride[] overrides = new HotbarOverride[10];
     private int oldSelectedSlot = 0;
 
-    public OverrideHotbarPower(PowerType<?> type, LivingEntity entity, ItemStack[] overrides) {
+    public OverrideHotbarPower(PowerType<?> type, LivingEntity entity, HotbarOverride[] overrides) {
         super(type, entity);
         System.arraycopy(overrides, 0, this.overrides, 0, 10);
     }
 
     @Nullable
-    public ItemStack getOverride(int hotbarSlotIndexZeroBased) {
-        return overrides[hotbarSlotIndexZeroBased];
+    public ItemStack getOverride(int i) {
+        HotbarOverride override = overrides[i];
+        return override.condition.test(entity) ? override.stack : null;
     }
 
     @Nullable
     public ItemStack getOffhandOverride() {
-        return overrides[9];
+        HotbarOverride override = overrides[9];
+        return override.condition.test(entity) ? override.stack : null;
     }
 
-    public void setOverride(int hotbarSlotIndexZeroBased, @Nullable ItemStack stack) {
+    public void setOverride(int i, @Nullable ItemStack stack) {
         PowerHolderComponent.KEY.sync(entity);
-        overrides[hotbarSlotIndexZeroBased] = stack;
+        overrides[i].stack = stack;
     }
 
     public void setOffhandOverride(@Nullable ItemStack stack) {
-        overrides[9] = stack;
+        overrides[9].stack = stack;
     }
 
     @Override
@@ -53,10 +57,10 @@ public class OverrideHotbarPower extends Power {
     @Override
     public void tick() {
         if (!(entity instanceof PlayerEntity player)) return;
-        for (ItemStack stack : overrides) {
-            if (stack != null && !stack.isEmpty()) {
-                stack.setHolder(entity);
-                stack.inventoryTick(player.getEntityWorld(), player, -1, false);
+        for (HotbarOverride override : overrides) {
+            if (override.stack != null && !override.stack.isEmpty()) {
+                override.stack.setHolder(entity);
+                override.stack.inventoryTick(player.getEntityWorld(), player, -1, false);
             }
         }
 
@@ -74,6 +78,16 @@ public class OverrideHotbarPower extends Power {
         }
     }
 
+    public static class HotbarOverride {
+        public ItemStack stack;
+        public ConditionFactory<LivingEntity>.Instance condition;
+
+        HotbarOverride(ItemStack stack, ConditionFactory<LivingEntity>.Instance condition) {
+            this.stack = stack;
+            this.condition = condition;
+        }
+    }
+
     public static PowerFactory<?> getFactory() {
         SerializableData data = new SerializableData();
         String[] names = {
@@ -82,15 +96,17 @@ public class OverrideHotbarPower extends Power {
         };
         for (String name : names) {
             data.add(name, SerializableDataTypes.ITEM_STACK, null);
+            data.add(name + "_condition", ApoliDataTypes.ENTITY_CONDITION);
         }
 
         return new PowerFactory<OverrideHotbarPower>(
             OriginsContent.id("override_hotbar"),
             data,
             dataInst -> (type, entity) -> {
-                ItemStack[] overrides = new ItemStack[10];
+                HotbarOverride[] overrides = new HotbarOverride[10];
                 for (int i = 0; i < names.length; i++) {
-                    overrides[i] = dataInst.get(names[i]);
+                    overrides[i].stack = dataInst.get(names[i]);
+                    overrides[i].condition = dataInst.get(names[i] + "_condition");
                 }
                 return new OverrideHotbarPower(type, entity, overrides);
             }
