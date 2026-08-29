@@ -25,7 +25,7 @@ public abstract class LivingEntityReflectDmgMixin {
 
         Entity attacker = source.getAttacker();
 
-        if (attacker instanceof LivingEntity && power.matchesReflectCondition(source, amount)) {
+        if (attacker instanceof LivingEntity && attacker != self && power.matchesReflectCondition(source, amount)) {
             float reflectedAmount = power.applyReflectModifier(amount);
             Identifier damageTypeId = power.getReflectDamageType();
             DamageSource reflectSource = damageTypeId != null

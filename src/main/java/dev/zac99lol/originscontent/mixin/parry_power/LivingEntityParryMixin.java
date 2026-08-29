@@ -33,6 +33,7 @@ public abstract class LivingEntityParryMixin {
 
         if (power.shouldReflect()
             && attacker instanceof LivingEntity
+            && attacker != self
             && power.matchesReflectCondition(source, amount)) {
 
             float reflectedAmount = power.applyReflectModifier(amount);
