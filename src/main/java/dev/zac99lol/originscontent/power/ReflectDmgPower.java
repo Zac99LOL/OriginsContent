@@ -117,8 +117,7 @@ public class ReflectDmgPower extends Power {
                 .add("reflect", REFLECT_CONFIG)
                 .add("damage_condition", ApoliDataTypes.DAMAGE_CONDITION, null)
                 .add("immune", SerializableDataTypes.BOOLEAN, true)
-                .add("action_on_parry", ApoliDataTypes.BIENTITY_ACTION)
-                .add("action_on_whiff", ApoliDataTypes.ENTITY_ACTION),
+                .add("action_on_parry", ApoliDataTypes.BIENTITY_ACTION),
             data -> (type, entity) -> new ReflectDmgPower(
                 type, entity,
                 data.get("reflect"),
