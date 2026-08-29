@@ -79,6 +79,9 @@ repositories {
     maven {
         url "https://maven.jamieswhiteshirt.com/libs-release"
     }
+    maven {
+        url 'https://masa.dy.fi/maven'
+    }
 }
 
 dependencies {
@@ -98,8 +101,7 @@ dependencies {
     modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-entity:${project.cca_version}"
     modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-world:${project.cca_version}"
     modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-item:${project.cca_version}"
-
-    modImplementation include("com.simibubi.create:create-fabric:6.0.8.1+build.1744-mc1.20.1")
+    modRuntimeOnly("carpet:fabric-carpet:1.20-1.4.112+v230608")
 }
 
 processResources {
@@ -162,7 +164,7 @@ publishing {
     }
 }
 
-configurations.all {
+configurations.configureEach {
     resolutionStrategy.dependencySubstitution {
         // Substitute the broken Terraformers group with Modrinth's group
         // Replace 'YOUR_MODMENU_VERSION' with the actual version string (e.g., 11.0.1)

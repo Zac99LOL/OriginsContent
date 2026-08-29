@@ -5,6 +5,7 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 
 import java.io.IOException;
+import java.util.UUID;
 
 public class OriginsContentClient implements ClientModInitializer {
 
@@ -21,5 +22,12 @@ public class OriginsContentClient implements ClientModInitializer {
                         throw new RuntimeException("Well, at least Minecraft crashed.");
                     }
             }));
+
+        ClientPlayNetworking.registerGlobalReceiver(OriginsContent.id("sync_selected_slot_packet"),
+            (client, handler, buf, responseSender) -> {
+                UUID playerId = buf.readUuid();
+                int slot = buf.readVarInt();
+                client.execute(() -> SelectedSlotSyncClient.set(playerId, slot));
+            });
     }
 }

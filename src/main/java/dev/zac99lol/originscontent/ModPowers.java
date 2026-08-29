@@ -12,5 +12,6 @@ public abstract class ModPowers {
         CancelInventoryActionsPower.init();
         Registry.register(ApoliRegistries.POWER_FACTORY, OriginsContent.id("parry"), ParryPower.getFactory());
         Registry.register(ApoliRegistries.POWER_FACTORY, OriginsContent.id("reflect_dmg"), ReflectDmgPower.getFactory());
+        Registry.register(ApoliRegistries.POWER_FACTORY, OriginsContent.id("override_hotbar"), OverrideHotbarPower.getFactory());
     }
 }

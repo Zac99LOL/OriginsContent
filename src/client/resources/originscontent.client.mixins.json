@@ -6,8 +6,11 @@
   "priority": 10000,
   "client": [
     "back_slot.BackSlotMixin",
+    "cancel_inventory_actions_power.MinecraftClientMixin",
     "disable_offhand_power.HandledScreenSlotIconMixin",
-    "cancel_inventory_actions_power.MinecraftClientMixin"
+    "override_hotbar_power.HeldItemFeatureRendererMixin",
+    "override_hotbar_power.HeldItemRendererMixin",
+    "override_hotbar_power.InGameHudMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -12,6 +12,7 @@
     "cancel_inventory_actions_power.ServerPlayNetworkHandlerMixin",
     "cancel_totems_power.LivingEntityMixin",
     "disable_offhand_power.ServerPlayNetworkHandlerMixin",
+    "override_hotbar_power.LivingEntityMixin",
     "parry_power.LivingEntityParryMixin",
     "perkeo.ItemEntityMixin",
     "reflect_dmg_power.LivingEntityReflectDmgMixin"
