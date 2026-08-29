@@ -30,6 +30,7 @@ public class OriginsContent implements ModInitializer {
         public static final UUID Astrulux = UUID.fromString("c90f16a6-60d2-4813-a6b4-15fc81971a03");
         public static final UUID Olified = UUID.fromString("6c09692f-aa94-4233-8328-a9ba62b8ff43");
         public static final UUID Lendhy0 = UUID.fromString("59e45737-8f6b-4ae4-9609-597665b9f77d");
+        public static final UUID oxf957 = UUID.fromString("890434a4-47a4-4dd0-b0f7-352ddc1528b5");
     }
 
     public static final String MOD_ID = "originscontent";
