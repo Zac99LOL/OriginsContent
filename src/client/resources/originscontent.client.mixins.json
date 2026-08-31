@@ -10,7 +10,8 @@
     "disable_offhand_power.HandledScreenSlotIconMixin",
     "override_hotbar_power.HeldItemFeatureRendererMixin",
     "override_hotbar_power.HeldItemRendererMixin",
-    "override_hotbar_power.InGameHudMixin"
+    "override_hotbar_power.InGameHudMixin",
+    "players_visible_from_further_away.OtherClientPlayerEntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1
