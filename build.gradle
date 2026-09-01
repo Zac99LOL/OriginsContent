@@ -82,6 +82,9 @@ repositories {
     maven {
         url 'https://masa.dy.fi/maven'
     }
+    maven {
+        url "https://repo.greenhouse.house/releases/"
+    }
 }
 
 dependencies {
@@ -101,6 +104,7 @@ dependencies {
     modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-entity:${project.cca_version}"
     modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-world:${project.cca_version}"
     modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-item:${project.cca_version}"
+    modImplementation "net.merchantpug:Apugli:${project.apugli_version}-fabric"
     modRuntimeOnly("carpet:fabric-carpet:1.20-1.4.112+v230608")
 }
 
