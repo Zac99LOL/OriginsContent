@@ -2,6 +2,7 @@ package dev.zac99lol.originscontent.mixin.disable_offhand_power;
 
 import dev.zac99lol.originscontent.power.DisableOffhandPower;
 import io.github.apace100.apoli.component.PowerHolderComponent;
+import net.minecraft.network.packet.c2s.play.ClickSlotC2SPacket;
 import net.minecraft.network.packet.c2s.play.PlayerActionC2SPacket;
 import net.minecraft.server.network.ServerPlayNetworkHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -24,5 +25,10 @@ public class ServerPlayNetworkHandlerMixin {
             && PowerHolderComponent.hasPower(player, DisableOffhandPower.class)) {
             ci.cancel();
         }
+    }
+
+    @Inject(method = "onClickSlot", at = @At("HEAD"), cancellable = true)
+    private void originscontent$stopResisting(ClickSlotC2SPacket packet, CallbackInfo ci) {
+        if (packet.getButton() == 40 && PowerHolderComponent.hasPower(player, DisableOffhandPower.class)) ci.cancel();
     }
 }
