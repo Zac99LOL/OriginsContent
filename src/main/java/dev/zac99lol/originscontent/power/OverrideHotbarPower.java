@@ -178,7 +178,7 @@ public class OverrideHotbarPower extends Power {
             dataInst -> (type, entity) -> {
                 HotbarSlotConfig[] configs = new HotbarSlotConfig[10];
                 for (int i = 0; i < names.length; i++) {
-                    configs[i] = new HotbarSlotConfig(dataInst.get("variants"));
+                    configs[i] = dataInst.get(names[i]);
                 }
                 return new OverrideHotbarPower(type, entity, configs);
             }
