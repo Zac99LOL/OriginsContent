@@ -40,7 +40,7 @@ public class OverrideHotbarPower extends Power {
 
     @Nullable
     public ItemStack getOffhandOverride() {
-        return getOverride(10);
+        return getOverride(9);
     }
 
     /*
@@ -63,7 +63,7 @@ public class OverrideHotbarPower extends Power {
     public void tick() {
         if (!(entity instanceof PlayerEntity player)) return;
         for (HotbarSlotConfig override : overrides) {
-            override.tick(entity);
+            if (override != null) override.tick(entity);
         }
 
         if (!player.getWorld().isClient) {
@@ -131,7 +131,7 @@ public class OverrideHotbarPower extends Power {
 
         public void tick(LivingEntity entity) {
             for (HotbarOverride variant : variants) {
-                variant.tick(entity);
+                if (variant != null) variant.tick(entity);
             }
         }
     }
