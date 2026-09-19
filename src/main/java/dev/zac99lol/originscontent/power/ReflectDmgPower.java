@@ -14,6 +14,7 @@ import io.github.apace100.calio.data.SerializableDataTypes;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.damage.DamageTypes;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Pair;
 
@@ -73,7 +74,7 @@ public class ReflectDmgPower extends Power {
             new SerializableData()
                 .add("damage_condition", ApoliDataTypes.DAMAGE_CONDITION, null)
                 .add("damage_modifier", Modifier.DATA_TYPE, null)
-                .add("damage_type", SerializableDataTypes.IDENTIFIER),
+                .add("damage_type", SerializableDataTypes.IDENTIFIER, DamageTypes.PLAYER_ATTACK.getValue()),
             data -> new ReflectConfig(
                 data.get("damage_condition"),
                 data.get("damage_modifier"),

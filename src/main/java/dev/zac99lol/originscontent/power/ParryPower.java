@@ -16,6 +16,7 @@ import io.github.apace100.calio.data.SerializableDataTypes;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.damage.DamageTypes;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Pair;
 
@@ -142,7 +143,7 @@ public class ParryPower extends CooldownPower implements Active {
                 .add("should_reflect", SerializableDataTypes.BOOLEAN)
                 .add("damage_condition", ApoliDataTypes.DAMAGE_CONDITION, null)
                 .add("damage_modifier", Modifier.DATA_TYPE, null)
-                .add("damage_type", SerializableDataTypes.IDENTIFIER, null),
+                .add("damage_type", SerializableDataTypes.IDENTIFIER, DamageTypes.PLAYER_ATTACK.getValue()),
             data -> new ReflectConfig(
                 data.getBoolean("should_reflect"),
                 data.get("damage_condition"),
@@ -170,8 +171,8 @@ public class ParryPower extends CooldownPower implements Active {
                 .add("cooldown", SerializableDataTypes.INT)
                 .add("hud_render", ApoliDataTypes.HUD_RENDER, HudRender.DONT_RENDER)
                 .add("cooldown_on_whiff", SerializableDataTypes.BOOLEAN, true)
-                .add("action_on_parry", ApoliDataTypes.BIENTITY_ACTION)
-                .add("action_on_whiff", ApoliDataTypes.ENTITY_ACTION),
+                .add("action_on_parry", ApoliDataTypes.BIENTITY_ACTION, null)
+                .add("action_on_whiff", ApoliDataTypes.ENTITY_ACTION, null),
             data -> (type, entity) -> {
                 ParryPower power = new ParryPower(
                     type, entity,
