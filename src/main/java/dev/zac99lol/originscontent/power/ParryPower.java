@@ -9,12 +9,12 @@ import io.github.apace100.apoli.power.factory.PowerFactory;
 import io.github.apace100.apoli.power.factory.action.ActionFactory;
 import io.github.apace100.apoli.power.factory.condition.ConditionFactory;
 import io.github.apace100.apoli.util.HudRender;
+import io.github.apace100.apoli.util.modifier.Modifier;
 import io.github.apace100.calio.data.SerializableData;
 import io.github.apace100.calio.data.SerializableDataType;
 import io.github.apace100.calio.data.SerializableDataTypes;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Pair;
@@ -97,7 +97,7 @@ public class ParryPower extends CooldownPower implements Active {
     }
 
     public float applyReflectModifier(float amount) {
-        return reflect.damageModifier == null ? amount : reflect.damageModifier.apply(amount);
+        return reflect.damageModifier == null ? amount : (float) reflect.damageModifier.apply(entity, amount);
     }
 
     public Identifier getReflectDamageType() {
@@ -128,35 +128,12 @@ public class ParryPower extends CooldownPower implements Active {
         }
     }
 
-    public record ReflectModifier(EntityAttributeModifier.Operation operation, double value) {
-        public float apply(float base) {
-            return switch (operation) {
-                case ADDITION -> (float) (base + value);
-                case MULTIPLY_BASE, MULTIPLY_TOTAL -> (float) (base * value);
-            };
-        }
-    }
-
     public record ReflectConfig(
         boolean shouldReflect,
         ConditionFactory<Pair<DamageSource, Float>>.Instance damageCondition,
-        ReflectModifier damageModifier,
+        Modifier damageModifier,
         Identifier damageType
     ) {}
-
-    private static final SerializableDataType<ReflectModifier> REFLECT_MODIFIER =
-        SerializableDataType.compound(
-            ReflectModifier.class,
-            new SerializableData()
-                .add("operation", SerializableDataTypes.MODIFIER_OPERATION, EntityAttributeModifier.Operation.MULTIPLY_TOTAL)
-                .add("value", SerializableDataTypes.DOUBLE, 1.0),
-            data -> new ReflectModifier(data.get("operation"), data.getDouble("value")),
-            (data, inst) -> {
-                SerializableData.Instance dataInst = data.new Instance();
-                dataInst.set("operation", inst.operation());
-                dataInst.set("value", inst.value());
-                return dataInst;
-            });
 
     private static final SerializableDataType<ReflectConfig> REFLECT_CONFIG =
         SerializableDataType.compound(
@@ -164,7 +141,7 @@ public class ParryPower extends CooldownPower implements Active {
             new SerializableData()
                 .add("should_reflect", SerializableDataTypes.BOOLEAN)
                 .add("damage_condition", ApoliDataTypes.DAMAGE_CONDITION, null)
-                .add("damage_modifier", REFLECT_MODIFIER, null)
+                .add("damage_modifier", Modifier.DATA_TYPE, null)
                 .add("damage_type", SerializableDataTypes.IDENTIFIER, null),
             data -> new ReflectConfig(
                 data.getBoolean("should_reflect"),

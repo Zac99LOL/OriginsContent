@@ -19,6 +19,8 @@ loom {
             sourceSet sourceSets.client
         }
     }
+
+    accessWidenerPath = file("src/main/resources/originscontent.classtweaker")
 }
 
 fabricApi {
@@ -85,6 +87,14 @@ repositories {
     maven {
         url "https://repo.greenhouse.house/releases/"
     }
+    maven {
+        name = 'GeckoLib'
+        url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
+        content {
+            includeGroupByRegex("software\\.bernie.*")
+            includeGroup("com.eliotlash.mclib")
+        }
+    }
 }
 
 dependencies {
@@ -97,7 +107,7 @@ dependencies {
         exclude(group: "net.fabricmc.fabric-api")
     }
     modImplementation "com.github.apace100:origins-fabric:${project.origins_version}"
-    modImplementation "com.github.apace100:apoli:${project.apoli_version}"
+    //modImplementation "com.github.apace100:apoli:${project.apoli_version}"
     modImplementation "maven.modrinth:DfvI9QGt:lxt2QwZh" // Defile
     modImplementation "maven.modrinth:SQhWMwht:otYYNz4L" // Arsenal
     modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-base:${project.cca_version}"
@@ -105,7 +115,10 @@ dependencies {
     modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-world:${project.cca_version}"
     modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-item:${project.cca_version}"
     modImplementation "net.merchantpug:Apugli:${project.apugli_version}-fabric"
-    modRuntimeOnly("carpet:fabric-carpet:1.20-1.4.112+v230608")
+    //modImplementation "maven.modrinth:aUR0Fu8o:Ob58jOS3" // Origins: Math
+    modImplementation "maven.modrinth:oTXs6boa:Clmgxurq" // Faithful Mace
+    modImplementation "org.ladysnake:pick-your-poison:1.1.1"
+    modImplementation "maven.modrinth:additionalentityattributes:1.7.6+1.20.1"
 }
 
 processResources {

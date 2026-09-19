@@ -1,4 +1,4 @@
-package dev.zac99lol.originscontent.mixin.harry_wants_cobwebs_to_last_longer;
+package dev.zac99lol.originscontent.mixin.longer_lasting_cobwebs;
 
 import io.github.apace100.origins.content.TemporaryCobwebBlock;
 import net.minecraft.block.BlockState;

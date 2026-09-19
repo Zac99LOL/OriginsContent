@@ -9,10 +9,12 @@
     "cancel_inventory_actions_power.MinecraftClientMixin",
     "disable_offhand_power.ClientPlayerInteractionManagerMixin",
     "disable_offhand_power.HandledScreenSlotIconMixin",
+    "max_health_update_faster_please.InGameHudMixin",
     "override_hotbar_power.HeldItemFeatureRendererMixin",
     "override_hotbar_power.HeldItemRendererMixin",
     "override_hotbar_power.InGameHudMixin",
-    "players_visible_from_further_away.OtherClientPlayerEntityMixin"
+    "players_visible_from_further_away.OtherClientPlayerEntityMixin",
+    "resource_based_item_bars.DrawContextMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -4,6 +4,7 @@
   "package": "dev.zac99lol.originscontent.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "armor_stand_placement.ArmorStandItemMixin",
     "back_slot.BackWeaponComponentMixin",
     "back_slot.SlotMixin",
     "cancel_inventory_actions_power.ItemEntityMixin",
@@ -12,11 +13,14 @@
     "cancel_inventory_actions_power.ServerPlayNetworkHandlerMixin",
     "cancel_totems_power.LivingEntityMixin",
     "disable_offhand_power.ServerPlayNetworkHandlerMixin",
-    "harry_wants_cobwebs_to_last_longer.TemporaryCobwebBlockMixin",
+    "longer_lasting_cobwebs.TemporaryCobwebBlockMixin",
     "override_hotbar_power.LivingEntityMixin",
-    "parry_power.LivingEntityParryMixin",
+    "parry_power.LivingEntityMixin",
+    "perkeo.EnchantmentMixin",
     "perkeo.ItemEntityMixin",
-    "reflect_dmg_power.LivingEntityReflectDmgMixin"
+    "reflect_dmg_power.LivingEntityMixin",
+    "wind_charge_patches.PoisonDartFrogEntityMixin",
+    "wind_charge_patches.WindChargeEntityMixin"
   ],
   "client": [
     "cancel_inventory_actions_power.PlayerInventoryMixin",

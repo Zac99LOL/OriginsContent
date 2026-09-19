@@ -1,6 +1,8 @@
 package dev.zac99lol.originscontent;
 
+import com.pvpranked.entity.WindChargeEntity;
 import dev.zac99lol.originscontent.command.MapCommand;
+import dev.zac99lol.originscontent.command.RainbowCommand;
 import dev.zac99lol.originscontent.command.WikiCommand;
 import dev.zac99lol.originscontent.condition.InBlackRainCondition;
 import dev.zac99lol.originscontent.config.ModConfig;
@@ -9,10 +11,19 @@ import io.github.apace100.apoli.registry.ApoliRegistries;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.message.v1.ServerMessageEvents;
+import net.minecraft.block.DispenserBlock;
+import net.minecraft.block.dispenser.ProjectileDispenserBehavior;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.stat.StatFormatter;
+import net.minecraft.stat.Stats;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.Position;
+import net.minecraft.world.World;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.apache.logging.log4j.Level;
@@ -35,6 +46,7 @@ public class OriginsContent implements ModInitializer {
 
     public static final String MOD_ID = "originscontent";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+    public static final Identifier TIMES_SAID_BAD_WORD = id("times_said_bad_word");
 
     @Override
     public void onInitialize() {
@@ -61,10 +73,44 @@ public class OriginsContent implements ModInitializer {
         // other stuff
         BackWeaponInteractionGuard.init(); // back slot stuff
 
+        // bad word
+        Registry.register(Registries.CUSTOM_STAT, TIMES_SAID_BAD_WORD, TIMES_SAID_BAD_WORD);
+        Stats.CUSTOM.getOrCreateStat(TIMES_SAID_BAD_WORD, StatFormatter.DEFAULT);
+        ServerMessageEvents.CHAT_MESSAGE.register((m, sender, params) -> {
+            String message = m.getContent().getString().toLowerCase();
+            if (message.contains("nigg")) {
+                sender.incrementStat(TIMES_SAID_BAD_WORD);
+            }
+        });
+
         // commands
         if (config.wikiCommandEnabled) { WikiCommand.init(); }
         if (config.mapCommandEnabled) { MapCommand.init(); }
+        RainbowCommand.init();
+
+        // origins math log spam
         suppressOriginsMathLogging();
+
+        // wind charges in dispensers
+        DispenserBlock.registerBehavior(com.pvpranked.item.ModItems.WIND_CHARGE, new ProjectileDispenserBehavior() {
+            @Override
+            protected ProjectileEntity createProjectile(World world, Position position, ItemStack stack) {
+                return WindChargeEntity.create(null, world, position.getX(), position.getY(), position.getZ());
+            }
+
+            @Override
+            protected float getForce() {
+                return 0.7F;
+            }
+
+            @Override
+            protected float getVariation() {
+                return 0F;
+            }
+        });
+
+        LOGGER.info("OriginsContent has initialized. Something about powering up your game or whatever.");
+        LOGGER.info("To be honest, it's probably making it a lot worse.");
     }
 
     public static Identifier id(String id) {
@@ -72,7 +118,7 @@ public class OriginsContent implements ModInitializer {
     }
 
     private void suppressOriginsMathLogging() {
-        final String loggerName = "origins-math"; // matches OriginsMath.MOD_ID exactly
+        final String loggerName = "origins-math";
 
         LoggerContext ctx = (LoggerContext) LogManager.getContext(false);
         Configuration config = ctx.getConfiguration();

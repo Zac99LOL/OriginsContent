@@ -15,5 +15,6 @@
   "item.originscontent.enchanted_book_bundle": "Enchanted Book Bundle",
   "item.originscontent.blueprint": "Blueprint",
   "itemTooltip.originscontent.bookBundle": "When unraveled (use), will give a random overleveled book.",
-  "itemTooltip.originscontent.perkeo": "Rest in peace."
+  "itemTooltip.originscontent.perkeo": "Rest in peace.",
+  "stat.originscontent.times_said_bad_word": "Times Said Certain Word"
 }

@@ -27,6 +27,7 @@
       "environment": "client"
     }
   ],
+  "accessWidener": "originscontent.classtweaker",
   "depends": {
     "fabricloader": ">=${loader_version}",
     "fabric": "*",

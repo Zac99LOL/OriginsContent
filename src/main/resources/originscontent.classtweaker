@@ -1,0 +1,2 @@
+classTweaker v1 named
+accessible method net/minecraft/entity/Entity getRotationVector (FF)Lnet/minecraft/util/math/Vec3d;

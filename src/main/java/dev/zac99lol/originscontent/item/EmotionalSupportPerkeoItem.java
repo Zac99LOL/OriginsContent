@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import dev.zac99lol.originscontent.OriginsContent;
 import net.minecraft.client.item.TooltipContext;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttribute;
@@ -55,6 +56,7 @@ public class EmotionalSupportPerkeoItem extends Item {
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         float knockbackStrength = 3.0f;
+        knockbackStrength += EnchantmentHelper.getKnockback(attacker); // yay knockback enchant!!11!1!!!
         float yaw = attacker.getYaw() * ((float)Math.PI / 180F);
         target.takeKnockback(knockbackStrength, MathHelper.sin(yaw), -MathHelper.cos(yaw));
 

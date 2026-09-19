@@ -1,5 +1,6 @@
 package dev.zac99lol.originscontent.power;
 
+import dev.zac99lol.originscontent.ModPackets;
 import dev.zac99lol.originscontent.OriginsContent;
 import io.github.apace100.apoli.data.ApoliDataTypes;
 import io.github.apace100.apoli.power.Power;
@@ -43,17 +44,6 @@ public class OverrideHotbarPower extends Power {
         return getOverride(9);
     }
 
-    /*
-    public void setOverride(int i, @Nullable ItemStack stack) {
-        PowerHolderComponent.KEY.sync(entity);
-        overrides[i].stack = stack;
-    }
-
-    public void setOffhandOverride(@Nullable ItemStack stack) {
-        overrides[9].stack = stack;
-    }
-    */
-
     @Override
     public boolean shouldTick() {
         return true;
@@ -63,7 +53,7 @@ public class OverrideHotbarPower extends Power {
     public void tick() {
         if (!(entity instanceof PlayerEntity player)) return;
         for (HotbarSlotConfig override : overrides) {
-            if (override != null) override.tick(entity);
+            if (override != null && override.resolveActive(entity) != null) override.resolveActive(entity).tick(entity);
         }
 
         if (!player.getWorld().isClient) {
@@ -74,7 +64,7 @@ public class OverrideHotbarPower extends Power {
                 buf.writeUuid(player.getUuid());
                 buf.writeVarInt(selectedSlot);
                 for (ServerPlayerEntity tracking : PlayerLookup.tracking(player)) {
-                    ServerPlayNetworking.send(tracking, OriginsContent.id("sync_selected_slot_packet"), buf);
+                    ServerPlayNetworking.send(tracking, ModPackets.SYNC_SELECTED_SLOT_PACKET, buf);
                 }
             }
         }
@@ -90,7 +80,7 @@ public class OverrideHotbarPower extends Power {
         }
 
         public ItemStack getStack() {
-            return condition == null ? stack : (condition.test((LivingEntity) stack.getHolder()) ? stack : null);
+            return stack;
         }
 
         public ItemStack getStackNoMatterWhat() {
@@ -103,6 +93,7 @@ public class OverrideHotbarPower extends Power {
 
         public void tick(LivingEntity entity) {
             if (stack != null && !stack.isEmpty()) {
+                stack.setHolder(entity);
                 stack.inventoryTick(entity.getWorld(), entity, -1, false);
             }
         }
@@ -127,12 +118,6 @@ public class OverrideHotbarPower extends Power {
 
         public List<HotbarOverride> getVariants() {
             return variants;
-        }
-
-        public void tick(LivingEntity entity) {
-            for (HotbarOverride variant : variants) {
-                if (variant != null) variant.tick(entity);
-            }
         }
     }
 

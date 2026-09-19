@@ -2,7 +2,6 @@ package dev.zac99lol.originscontent;
 
 import dev.zac99lol.originscontent.item.EmotionalSupportPerkeoItem;
 import dev.zac99lol.originscontent.item.EnchantedBookBundleItem;
-import dev.zac99lol.originscontent.item.ResourceBasedItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.entity.EquipmentSlot;
@@ -29,7 +28,6 @@ public abstract class ModItems {
     public static final Item ACHIEVEMENT_ITEM = new Item(new FabricItemSettings().rarity(Rarity.RARE).fireproof());
     public static final Item ACHIEVEMENT_USE_ITEM = new Item(new FabricItemSettings().rarity(Rarity.RARE).fireproof());
     public static final Item BLUEPRINT_ITEM = new Item(new FabricItemSettings().maxCount(1).rarity(Rarity.RARE));
-    public static final ResourceBasedItem RESOURCE_BASED_ITEM = new ResourceBasedItem(new FabricItemSettings());
 
     public static void initialize() {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(t -> {
@@ -54,6 +52,5 @@ public abstract class ModItems {
         Registry.register(Registries.ITEM, OriginsContent.id("achievement_item"), ACHIEVEMENT_ITEM);
         Registry.register(Registries.ITEM, OriginsContent.id("achievement_item_use"), ACHIEVEMENT_USE_ITEM);
         Registry.register(Registries.ITEM, OriginsContent.id("blueprint"), BLUEPRINT_ITEM);
-        Registry.register(Registries.ITEM, OriginsContent.id("resource_based_item"), RESOURCE_BASED_ITEM);
     }
 }
