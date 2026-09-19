@@ -10,6 +10,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
@@ -59,6 +60,10 @@ public class EmotionalSupportPerkeoItem extends Item {
         knockbackStrength += EnchantmentHelper.getKnockback(attacker); // yay knockback enchant!!11!1!!!
         float yaw = attacker.getYaw() * ((float)Math.PI / 180F);
         target.takeKnockback(knockbackStrength, MathHelper.sin(yaw), -MathHelper.cos(yaw));
+        if (target instanceof PlayerEntity player) {
+            player.velocityDirty = true;
+            player.velocityModified = true;
+        }
 
         return true;
     }
