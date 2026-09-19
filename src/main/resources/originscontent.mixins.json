@@ -4,6 +4,7 @@
   "package": "dev.zac99lol.originscontent.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "action_on_thunder_crash.ServerPlayNetworkingMixin",
     "armor_stand_placement.ArmorStandItemMixin",
     "back_slot.BackWeaponComponentMixin",
     "back_slot.SlotMixin",
@@ -14,6 +15,7 @@
     "cancel_totems_power.LivingEntityMixin",
     "disable_offhand_power.ServerPlayNetworkHandlerMixin",
     "longer_lasting_cobwebs.TemporaryCobwebBlockMixin",
+    "no_black_rain_ink_placement.DefileMixin",
     "override_hotbar_power.LivingEntityMixin",
     "parry_power.LivingEntityMixin",
     "perkeo.EnchantmentMixin",

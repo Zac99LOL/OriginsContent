@@ -14,5 +14,6 @@ public abstract class ModPowers {
         Registry.register(ApoliRegistries.POWER_FACTORY, OriginsContent.id("reflect_dmg"), ReflectDmgPower.getFactory());
         Registry.register(ApoliRegistries.POWER_FACTORY, OriginsContent.id("override_hotbar"), OverrideHotbarPower.getFactory());
         Registry.register(ApoliRegistries.POWER_FACTORY, OriginsContent.id("ticking_entity"), TickingEntityPower.getFactory());
+        Registry.register(ApoliRegistries.POWER_FACTORY, OriginsContent.id("action_on_thunder"), ActionOnThunderPower.getFactory());
     }
 }
