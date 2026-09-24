@@ -39,7 +39,7 @@ public class EmotionalSupportPerkeoItem extends Item {
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         if (OriginsContent.heldByUUID(stack, OriginsContent.UUIDs.Zac99LOL)) tooltip.add(Text.literal("Hi Zac!").formatted(Formatting.DARK_AQUA));
-        if (OriginsContent.heldByUUID(stack, OriginsContent.UUIDs.SlightlyShorter)) tooltip.add(Text.literal("Hi Harry!").formatted(Formatting.GOLD));
+        if (OriginsContent.heldByUUID(stack, OriginsContent.UUIDs.SlightlyShorter)) tooltip.add(Text.literal("Hello, Harry van Echteld.").formatted(Formatting.GOLD));
         if (OriginsContent.heldByUUID(stack, OriginsContent.UUIDs.Astrulux)) tooltip.add(Text.literal("Hi Nathan!").formatted(Formatting.LIGHT_PURPLE));
         if (OriginsContent.heldByUUID(stack, OriginsContent.UUIDs.Olified)) tooltip.add(Text.literal("Hello, Olified.").formatted(Formatting.DARK_BLUE));
         if (OriginsContent.heldByUUID(stack, OriginsContent.UUIDs.oxf957)) tooltip.add(Text.literal("Hi, oxf!").formatted(Formatting.DARK_AQUA));
