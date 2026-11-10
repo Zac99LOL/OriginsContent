@@ -1,6 +1,6 @@
 package dev.zac99lol.originscontent.mixin.cancel_totems_power;
 
-import dev.zac99lol.originscontent.power.CancelTotemsPower;
+import dev.zac99lol.originscontent.apoli.power.CancelTotemsPower;
 import io.github.apace100.apoli.component.PowerHolderComponent;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;

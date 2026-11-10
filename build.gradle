@@ -1,9 +1,19 @@
+import java.text.SimpleDateFormat
+
+static def getTimestampVersion() {
+    def date = new Date()
+    def format = new SimpleDateFormat("yy.MM.dd-HH.mm")
+
+    format.setTimeZone(TimeZone.getTimeZone("GMT+10:00"))
+    return format.format(date)
+}
+
 plugins {
-    id 'fabric-loom' version '1.12.7'
+    id 'fabric-loom' version '1.17-SNAPSHOT'
     id 'maven-publish'
 }
 
-version = project.mod_version
+version = getTimestampVersion()
 group = project.maven_group
 
 base {
@@ -95,6 +105,29 @@ repositories {
             includeGroup("com.eliotlash.mclib")
         }
     }
+
+    maven {
+        name = "Sleeping Town"
+        url = "https://repo.sleeping.town"
+    }
+
+    maven {
+        url = "https://maven.bawnorton.com/releases"
+        content {
+            includeGroup("com.github.bawnorton.mixinsquared")
+        }
+    }
+
+    maven {
+        url = "https://maven.blamejared.com"
+    }
+
+    maven {
+        url "https://chocolateminecraft.com/maven"
+        name "Xaero's Maven"
+    }
+    
+    mavenLocal()
 }
 
 dependencies {
@@ -107,28 +140,43 @@ dependencies {
         exclude(group: "net.fabricmc.fabric-api")
     }
     modImplementation "com.github.apace100:origins-fabric:${project.origins_version}"
-    //modImplementation "com.github.apace100:apoli:${project.apoli_version}"
+    modImplementation "com.github.apace100:apoli:${project.apoli_version}"
     modImplementation "maven.modrinth:DfvI9QGt:lxt2QwZh" // Defile
     modImplementation "maven.modrinth:SQhWMwht:otYYNz4L" // Arsenal
     modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-base:${project.cca_version}"
     modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-entity:${project.cca_version}"
     modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-world:${project.cca_version}"
     modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-item:${project.cca_version}"
-    modImplementation "net.merchantpug:Apugli:${project.apugli_version}-fabric"
+    modImplementation("net.merchantpug:Apugli:${project.apugli_version}-fabric") {
+        exclude(module: "apoli")
+    }
     //modImplementation "maven.modrinth:aUR0Fu8o:Ob58jOS3" // Origins: Math
     modImplementation "maven.modrinth:oTXs6boa:Clmgxurq" // Faithful Mace
     modImplementation "org.ladysnake:pick-your-poison:1.1.1"
     modImplementation "maven.modrinth:additionalentityattributes:1.7.6+1.20.1"
+    modImplementation "maven.modrinth:rVUtrHuM:zXYXrqoK" // Backported Spears
+    modCompileOnly "dev.emi:emi-fabric:1.1.24+1.20.1"
+    include(implementation(annotationProcessor("com.github.bawnorton.mixinsquared:mixinsquared-fabric:0.3.7")))
+    modImplementation "maven.modrinth:sync:1.11.8"
+    modImplementation "maven.modrinth:jade:11.13.3+fabric"
+    modImplementation "maven.modrinth:iris:1.7.6+1.20.1"
+    modImplementation "xaero.map:xaeroworldmap-fabric-1.20.1:1.44.2"
+    modImplementation "xaero.minimap:xaerominimap-fabric-1.20.1:26.4.2"
+    modImplementation include("team.lodestar.lodestone:lodestone:1.20.1-1.6.2.3f-fabric")
+
+    modImplementation include("dev.zac99lol:neverend:1.0.0") // we don't talk about this one.
+    modImplementation include("net.ludocrypt:specialmodels:1.4.10")
 }
 
 processResources {
-    inputs.property "version", project.version
+
+    inputs.property "version", getTimestampVersion()
     inputs.property "minecraft_version", project.minecraft_version
     inputs.property "loader_version", project.loader_version
     filteringCharset "UTF-8"
 
     filesMatching("fabric.mod.json") {
-        expand "version": project.version,
+        expand "version": getTimestampVersion(),
                 "minecraft_version": project.minecraft_version,
                 "loader_version": project.loader_version
     }
@@ -161,6 +209,12 @@ jar {
     from("LICENSE") {
         rename { "${it}_${project.archivesBaseName}" }
     }
+
+    manifest {
+        attributes(
+                "Main-Class": "dev.zac99lol.originscontent.JarLauncher"
+        )
+    }
 }
 
 // configure the maven publication
@@ -183,8 +237,6 @@ publishing {
 
 configurations.configureEach {
     resolutionStrategy.dependencySubstitution {
-        // Substitute the broken Terraformers group with Modrinth's group
-        // Replace 'YOUR_MODMENU_VERSION' with the actual version string (e.g., 11.0.1)
         substitute module("com.terraformersmc:modmenu:7.1.0") using module("maven.modrinth:modmenu:7.1.0")
         substitute module("com.terraformersmc:modmenu:6.2.1") using module("maven.modrinth:modmenu:6.2.1")
     }

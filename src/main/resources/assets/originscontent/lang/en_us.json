@@ -14,7 +14,20 @@
   "item.originscontent.placeholder_item_9": "Placeholder Item 9",
   "item.originscontent.enchanted_book_bundle": "Enchanted Book Bundle",
   "item.originscontent.blueprint": "Blueprint",
+  "item.originscontent.soul_locket": "Soul Locket",
+  "item.originscontent.poolfish_on_a_stick": "Poolfish on a Stick",
+  "item.originscontent.music_disc_tsundere": "Music Disc",
+  "item.originscontent.music_disc_tsundere.desc": "It's Not Like I Like You!! - Olified",
   "itemTooltip.originscontent.bookBundle": "When unraveled (use), will give a random overleveled book.",
   "itemTooltip.originscontent.perkeo": "Rest in peace.",
-  "stat.originscontent.times_said_bad_word": "Times Said Certain Word"
+  "stat.originscontent.times_said_bad_word": "Times Said Certain Word",
+  "subtitle.entity.axolotl.convert": "Axolotl converts",
+  "subtitle.misc.absolute_cinema": "Absolute cinema plays",
+  "itemGroup.originscontent.neverend": "Liminal Pools",
+  "text.originscontent.start_combat": "You are now in combat.",
+  "text.originscontent.end_combat": "You are no longer in combat.",
+  "gui.originscontent.disabled_in_neverend": "This feature is disabled whilst in Neverend.",
+  "block.originscontent.panorama": "Block of Panorama",
+  "gui.originscontent.left_in_combat.title": "You left in combat!",
+  "gui.originscontent.left_in_combat.description": "Players can still attack you!"
 }

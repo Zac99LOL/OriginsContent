@@ -1,0 +1,33 @@
+{
+	"display": {
+		"icon": {
+			"item": "minecraft:black_concrete"
+		},
+		"title": {
+			"text": "Down the hatch!"
+		},
+		"description": {
+			"text": "Reach Level 2"
+		},
+		"frame": "goal",
+		"show_toast": true,
+		"announce_to_chat": false,
+		"hidden": true
+	},
+	"parent": "originscontent:neverend/prelevel2",
+	"criteria": {
+		"y_level": {
+			"trigger": "minecraft:location",
+			"conditions": {
+				"player": {
+					"location": {
+						"position": {
+							"y": 301
+						},
+						"dimension": "liminalpools:poolrooms"
+					}
+				}
+			}
+		}
+	}
+}

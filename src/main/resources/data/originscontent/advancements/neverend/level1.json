@@ -1,0 +1,25 @@
+{
+	"display": {
+		"icon": {
+			"item": "liminalpools:liminal_tiles"
+		},
+		"title": {
+			"text": "The End?"
+		},
+		"description": {
+			"text": "Reach Level 1"
+		},
+		"frame": "goal",
+		"show_toast": true,
+		"announce_to_chat": true
+	},
+	"parent": "originscontent:neverend/root",
+	"criteria": {
+		"enter_dimension": {
+			"trigger": "minecraft:changed_dimension",
+			"conditions": {
+				"to": "liminalpools:poolrooms"
+			}
+		}
+	}
+}

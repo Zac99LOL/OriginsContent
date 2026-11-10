@@ -17,7 +17,6 @@ public class BackWeaponInteractionGuard {
     );
 
     public static void init() {
-        OriginsContent.LOGGER.info("Registering back weapon interaction guard...");
 
         UseBlockCallback.EVENT.register((player, world, hand, hitResult) -> {
             if (world.isClient) return ActionResult.PASS;

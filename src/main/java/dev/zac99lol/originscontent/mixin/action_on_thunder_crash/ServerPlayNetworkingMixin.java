@@ -1,6 +1,6 @@
 package dev.zac99lol.originscontent.mixin.action_on_thunder_crash;
 
-import dev.zac99lol.originscontent.power.ActionOnThunderPower;
+import dev.zac99lol.originscontent.apoli.power.ActionOnThunderPower;
 import doctor4t.defile.Defile;
 import io.github.apace100.apoli.component.PowerHolderComponent;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;

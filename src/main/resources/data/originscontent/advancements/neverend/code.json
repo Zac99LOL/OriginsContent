@@ -1,0 +1,22 @@
+{
+	"display": {
+		"icon": {
+			"item": "minecraft:compass"
+		},
+		"title": {
+			"text": "Resurrected Sonar"
+		},
+		"description": {
+			"text": "Recieve a set of chunk coordinates from a Navigation Deck combination lock"
+		},
+		"frame": "challenge",
+		"show_toast": true,
+		"announce_to_chat": false
+	},
+	"parent": "originscontent:neverend/oilrig",
+	"criteria": {
+		"impossible": {
+			"trigger": "minecraft:impossible"
+		}
+	}
+}

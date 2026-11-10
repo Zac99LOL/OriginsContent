@@ -1,6 +1,6 @@
 package dev.zac99lol.originscontent.mixin.client.cancel_inventory_actions_power;
 
-import dev.zac99lol.originscontent.power.CancelInventoryActionsPower;
+import dev.zac99lol.originscontent.apoli.power.CancelInventoryActionsPower;
 import io.github.apace100.apoli.component.PowerHolderComponent;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;

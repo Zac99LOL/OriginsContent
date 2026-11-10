@@ -1,0 +1,25 @@
+{
+	"display": {
+		"icon": {
+			"item": "minecraft:hopper"
+		},
+		"title": {
+			"text": "Going Deeper",
+			"color": "dark_aqua",
+			"bold": false
+		},
+		"description": {
+			"text": "Discover an Aquatic Chute",
+			"color": "aqua"
+		},
+		"frame": "task",
+		"show_toast": true,
+		"announce_to_chat": false
+	},
+  	"parent": "originscontent:neverend/level1",
+	"criteria": {
+		"nohappen": {
+			"trigger": "minecraft:impossible"
+		}
+	}
+}

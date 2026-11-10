@@ -1,6 +1,6 @@
 package dev.zac99lol.originscontent.mixin.override_hotbar_power;
 
-import dev.zac99lol.originscontent.power.OverrideHotbarPower;
+import dev.zac99lol.originscontent.apoli.power.OverrideHotbarPower;
 import io.github.apace100.apoli.component.PowerHolderComponent;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;

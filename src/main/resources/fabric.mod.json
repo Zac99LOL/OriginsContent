@@ -10,14 +10,23 @@
   "icon": "assets/originscontent/icon.png",
   "environment": "*",
   "entrypoints": {
-    "fabric-datagen": [
-      "dev.zac99lol.originscontent.client.OriginsContentDataGenerator"
+    "main": [
+      "dev.zac99lol.originscontent.OriginsContent"
     ],
     "client": [
       "dev.zac99lol.originscontent.client.OriginsContentClient"
     ],
-    "main": [
-      "dev.zac99lol.originscontent.OriginsContent"
+    "cardinal-components": [
+      "dev.zac99lol.originscontent.init.ModCardinalComponents"
+    ],
+    "emi": [
+      "dev.zac99lol.originscontent.OriginsContentEmiPlugin"
+    ],
+    "jade": [
+      "dev.zac99lol.originscontent.OriginsContentJadePlugin"
+    ],
+    "mixinsquared-adjuster": [
+      "dev.zac99lol.originscontent.OriginsContentMixinAnnotationAdjuster"
     ]
   },
   "mixins": [
@@ -33,5 +42,19 @@
     "fabric": "*",
     "minecraft": "${minecraft_version}",
     "cloth-config": "*"
+  },
+  "breaks": {
+    "essential": "*"
+  },
+  "custom": {
+    "modmenu": {
+      "badges": [
+        "deprecated"
+      ],
+      "update_checker": false
+    },
+    "cardinal-components": [
+      "originscontent:saved_origin"
+    ]
   }
 }

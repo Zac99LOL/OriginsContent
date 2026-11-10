@@ -1,0 +1,29 @@
+{
+	"display": {
+		"icon": {
+			"item": "liminalpools:poolfish"
+		},
+		"title": {
+			"text": "Bioluminescent Synesthesia"
+		},
+		"description": {
+			"text": "Consume a Poolfish"
+		},
+		"frame": "task",
+		"show_toast": true,
+		"announce_to_chat": false
+	},
+	"parent": "originscontent:neverend/level1",
+	"criteria": {
+		"consume": {
+			"trigger": "minecraft:consume_item",
+			"conditions": {
+				"item": {
+					"items": [
+						"liminalpools:poolfish"
+					]
+				}
+			}
+		}
+	}
+}

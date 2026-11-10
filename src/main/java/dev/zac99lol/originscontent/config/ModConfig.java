@@ -14,8 +14,12 @@ public class ModConfig implements ConfigData {
     public String reallyAssMethodOfMakingACommentBecauseClothConfigDoesntProperlySupportItAGAIN = "This should be a valid url, e.g. https://google.com/ would pass. Also, if mapCommandEnabled is false, this does not matter (it wont crash dw)";
     public String mapAddress = "CHANGEMETOO";
 
+    public boolean isDuelsServer = false;
+
+    public double combatTimeout = 20;
+
     @Override
-    public void validatePostLoad() throws ValidationException {
+    public void validatePostLoad() {
         if (!wikiAddress.equals("CHANGEME") && !wikiAddress.matches("https?://[\\w\\-.]+(:\\d+)?(/.*)?") && wikiCommandEnabled) {
             throw new RuntimeException("[OriginsContent] Invalid config: wikiAddress must be a valid URL, got: \"" + wikiAddress + "\"");
         }

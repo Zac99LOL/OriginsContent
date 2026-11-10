@@ -1,0 +1,22 @@
+{
+	"display": {
+		"icon": {
+			"item": "liminalpools:closed_locker"
+		},
+		"title": {
+			"text": "Embrace the Depths"
+		},
+		"description": {
+			"text": "Obtain a diving suit from a locker room"
+		},
+		"frame": "challenge",
+		"show_toast": true,
+		"announce_to_chat": false
+	},
+	"parent": "originscontent:neverend/level2",
+	"criteria": {
+		"nohappen": {
+			"trigger": "minecraft:impossible"
+		}
+	}
+}

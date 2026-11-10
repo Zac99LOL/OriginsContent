@@ -1,6 +1,6 @@
 package dev.zac99lol.originscontent.mixin.cancel_inventory_actions_power;
 
-import dev.zac99lol.originscontent.power.DisableOffhandPower;
+import dev.zac99lol.originscontent.apoli.power.DisableOffhandPower;
 import io.github.apace100.apoli.component.PowerHolderComponent;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.ItemStack;

@@ -1,0 +1,33 @@
+{
+	"display": {
+		"icon": {
+			"item": "liminalpools:abyssteel"
+		},
+		"title": {
+			"text": "Here We Go..."
+		},
+		"description": {
+			"text": "Reach Level 3"
+		},
+		"frame": "goal",
+		"show_toast": true,
+		"announce_to_chat": false,
+		"hidden": true
+	},
+	"parent": "originscontent:neverend/prelevel3",
+	"criteria": {
+		"y_level": {
+			"trigger": "minecraft:location",
+			"conditions": {
+				"player": {
+					"location": {
+						"position": {
+							"y": 266
+						},
+						"dimension": "liminalpools:poolrooms"
+					}
+				}
+			}
+		}
+	}
+}

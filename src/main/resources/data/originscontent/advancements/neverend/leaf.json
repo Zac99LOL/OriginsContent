@@ -1,0 +1,22 @@
+{
+	"display": {
+		"icon": {
+			"item": "liminalpools:flowering_liminalgae"
+		},
+		"title": {
+			"text": "Liminal Lunch"
+		},
+		"description": {
+			"text": "Collect Liminalgae Leaves from hanging Liminalgae"
+		},
+		"frame": "task",
+		"show_toast": true,
+		"announce_to_chat": false
+	},
+	"parent": "originscontent:neverend/level1",
+	"criteria": {
+		"nohappen": {
+			"trigger": "minecraft:impossible"
+		}
+	}
+}

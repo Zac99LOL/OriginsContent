@@ -1,0 +1,23 @@
+{
+	"display": {
+		"icon": {
+			"item": "minecraft:structure_void"
+		},
+		"title": {
+			"text": "The Point of No Return"
+		},
+		"description": {
+			"text": "Get Devoured by a Leviathan Grandgousier"
+		},
+		"frame": "task",
+		"show_toast": true,
+		"announce_to_chat": true,
+		"hidden": true
+	},
+	"parent": "originscontent:neverend/grandgousier",
+	"criteria": {
+		"impossible": {
+			"trigger": "minecraft:impossible"
+		}
+	}
+}

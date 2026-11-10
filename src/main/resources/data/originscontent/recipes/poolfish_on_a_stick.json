@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "F": {
+      "item": "minecraft:fishing_rod"
+    },
+    "P": {
+      "item": "liminalpools:poolfish"
+    }
+  },
+  "pattern": [
+    "F  ",
+    " P ",
+    "   "
+  ],
+  "result": {
+    "item": "originscontent:poolfish_on_a_stick"
+  }
+}

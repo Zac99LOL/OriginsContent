@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "liminalpools:liminal_tiles",
+    "liminalpools:black",
+    "liminalpools:liminal_tile_stairs",
+    "liminalpools:liminal_tile_slab",
+    "liminalpools:abyssteel",
+    "liminalpools:abyssteel_stairs",
+    "liminalpools:abyssteel_slab",
+    "liminalpools:chiseled_abyssteel",
+    "liminalpools:walkway",
+    "liminalpools:walkway_stairs",
+    "liminalpools:abyssteel_chain"
+  ]
+}

@@ -3,23 +3,43 @@
   "minVersion": "0.8",
   "package": "dev.zac99lol.originscontent.mixin.client",
   "compatibilityLevel": "JAVA_17",
-  "priority": 10000,
+  "priority": 1000,
   "client": [
     "back_slot.BackSlotMixin",
     "cancel_inventory_actions_power.MinecraftClientMixin",
+    "combat_log_display.ClientPlayerInteractionManagerMixin",
+    "combat_log_display.InGameHudMixin",
     "disable_offhand_power.ClientPlayerInteractionManagerMixin",
     "disable_offhand_power.HandledScreenSlotIconMixin",
+    "fix_knockback_hits.ClientPlayerEntityMixin",
+    "jade_config_options.PluginsConfigScreenMixin",
     "max_health_update_faster_please.InGameHudMixin",
+    "neverend_advancements.DebugHudMixin",
+    "neverend_changes.GuiMapMixin",
+    "no_health.OtherClientPlayerEntityMixin",
     "override_hotbar_power.HeldItemFeatureRendererMixin",
     "override_hotbar_power.HeldItemRendererMixin",
     "override_hotbar_power.InGameHudMixin",
     "players_visible_from_further_away.OtherClientPlayerEntityMixin",
-    "resource_based_item_bars.DrawContextMixin"
+    "resource_based_item_bars.DrawContextMixin",
+    "rideable_grandgousiers.CameraMixin",
+    "silly_mode.ClientPlayerInteractionManagerMixin",
+    "silly_mode.LanguageOptionsScreenMixin",
+    "sprinting_hunger_power.ClientPlayerEntityMixin",
+    "stained_axolotls.AxolotlEntityRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1
   },
   "overwrites": {
     "requireAnnotations": true
-  }
+  },
+  "mixins": [
+    "fuck_your_weather_sounds.DefileClientMixin",
+    "neverend_changes.IrisMixin",
+    "neverend_changes.JadeOverlayRendererMixin",
+    "neverend_changes.MinimapRendererMixin",
+    "neverend_changes.OctantBlockEntityRendererMixin",
+    "neverend_changes.WaypointWorldRenderReaderMixin"
+  ]
 }

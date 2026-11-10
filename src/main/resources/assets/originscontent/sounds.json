@@ -1,0 +1,16 @@
+{
+  "entity.axolotl.convert": {
+    "sounds": [
+      "minecraft:mob/drowned/convert1",
+      "minecraft:mob/drowned/convert2",
+      "minecraft:mob/drowned/convert3"
+    ],
+    "subtitle": "subtitle.entity.axolotl.convert"
+  },
+  "music_disc.tsundere": {
+    "sounds": [
+      "originscontent:tsundere"
+    ],
+    "subtitle": "subtitle.misc.absolute_cinema"
+  }
+}

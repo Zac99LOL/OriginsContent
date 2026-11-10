@@ -126,5 +126,30 @@
       <option name="name" value="GeckoLib" />
       <option name="url" value="https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/" />
     </remote-repository>
+    <remote-repository>
+      <option name="id" value="MavenLocal" />
+      <option name="name" value="MavenLocal" />
+      <option name="url" value="file:/$MAVEN_REPOSITORY$/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="Sleeping Town" />
+      <option name="name" value="Sleeping Town" />
+      <option name="url" value="https://repo.sleeping.town" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="maven13" />
+      <option name="name" value="maven13" />
+      <option name="url" value="https://maven.bawnorton.com/releases" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="maven14" />
+      <option name="name" value="maven14" />
+      <option name="url" value="https://maven.blamejared.com" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="Xaero's Maven" />
+      <option name="name" value="Xaero's Maven" />
+      <option name="url" value="https://chocolateminecraft.com/maven" />
+    </remote-repository>
   </component>
 </project>

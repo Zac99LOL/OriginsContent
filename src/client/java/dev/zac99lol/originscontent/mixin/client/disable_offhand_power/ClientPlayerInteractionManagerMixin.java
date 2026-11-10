@@ -1,6 +1,6 @@
 package dev.zac99lol.originscontent.mixin.client.disable_offhand_power;
 
-import dev.zac99lol.originscontent.power.DisableOffhandPower;
+import dev.zac99lol.originscontent.apoli.power.DisableOffhandPower;
 import io.github.apace100.apoli.component.PowerHolderComponent;
 import net.minecraft.client.network.ClientPlayerInteractionManager;
 import net.minecraft.entity.player.PlayerEntity;

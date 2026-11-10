@@ -1,14 +1,11 @@
 package dev.zac99lol.originscontent.mixin.reflect_dmg_power;
 
-import dev.zac99lol.originscontent.power.ReflectDmgPower;
+import dev.zac99lol.originscontent.OriginsContent;
+import dev.zac99lol.originscontent.apoli.power.ReflectDmgPower;
 import io.github.apace100.apoli.component.PowerHolderComponent;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.util.Identifier;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -20,27 +17,18 @@ public abstract class LivingEntityMixin {
     private void originscontent$reflect(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
         LivingEntity self = (LivingEntity) (Object) this;
 
-        ReflectDmgPower power = PowerHolderComponent.getPowers(self, ReflectDmgPower.class).stream().filter(p -> p.matchesDamageCondition(source, amount)).findFirst().orElse(null);
+        ReflectDmgPower power = PowerHolderComponent.getPowers(self, ReflectDmgPower.class)
+            .stream().filter(p -> p.isValid(source, amount))
+            .findFirst().orElse(null);
 
-        if (power == null) return;
-
-        Entity attacker = source.getAttacker();
-
-        if (attacker instanceof LivingEntity && attacker != self && power.matchesReflectCondition(source, amount)) {
-            float reflectedAmount = power.applyReflectModifier(amount);
-            Identifier damageTypeId = power.getReflectDamageType();
-            DamageSource reflectSource = damageTypeId != null
-                ? self.getDamageSources().create(
-                    RegistryKey.of(RegistryKeys.DAMAGE_TYPE, damageTypeId),
-                self, self)
-                : self.getDamageSources().mobAttack(self);
-
-            attacker.damage(reflectSource, reflectedAmount);
+        if (power == null) {
+            OriginsContent.LOGGER.debug("Power not found");
+            return;
         }
 
-        power.onSuccessfulParry(attacker);
+        power.onDamage(source, amount);
 
-        if (power.isImmune()) {
+        if (power.cancelsDamage()) {
             cir.setReturnValue(false);
         }
     }

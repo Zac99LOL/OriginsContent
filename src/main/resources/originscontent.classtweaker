@@ -1,2 +1,7 @@
 classTweaker v1 named
 accessible method net/minecraft/entity/Entity getRotationVector (FF)Lnet/minecraft/util/math/Vec3d;
+accessible method net/minecraft/item/ItemGroup <init> (Lnet/minecraft/item/ItemGroup$Row;ILnet/minecraft/item/ItemGroup$Type;Lnet/minecraft/text/Text;Ljava/util/function/Supplier;Lnet/minecraft/item/ItemGroup$EntryCollector;)V
+accessible field net/minecraft/entity/LivingEntity jumping Z
+inject-interface net/minecraft/entity/passive/AxolotlEntity dev/zac99lol/originscontent/util/LiminalAxolotl
+inject-interface net/minecraft/entity/ItemEntity dev/zac99lol/originscontent/util/ItemEntityBullshit
+inject-interface net/minecraft/server/network/ServerPlayerEntity dev/zac99lol/originscontent/util/CanCombatLog

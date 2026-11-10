@@ -1,0 +1,28 @@
+{
+	"display": {
+		"icon": {
+			"item": "liminalpools:liminal_tiles"
+		},
+		"title": {
+			"text": "Neverend"
+		},
+		"description": {
+			"text": "Welcome to hell!"
+		},
+		"background": "liminalpools:textures/block/abyssteel.png",
+		"frame": "task",
+		"show_toast": false,
+		"announce_to_chat": false
+	},
+	"criteria": {
+		"nohappen": {
+			"trigger": "minecraft:impossible"
+		},
+		"dimension": {
+			"trigger": "minecraft:changed_dimension",
+			"conditions": {
+				"to": "liminalpools:poolrooms"
+			}
+		}
+	}
+}

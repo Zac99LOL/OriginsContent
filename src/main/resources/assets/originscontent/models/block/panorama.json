@@ -1,0 +1,10 @@
+{
+  "parent": "block/block",
+  "textures": {
+    "particle": "originscontent:block/panorama/0.png"
+  },
+  "specialmodels": {
+    "originscontent:panorama": "originscontent:block/panorama_whatthefuck"
+  },
+  "elements": []
+}

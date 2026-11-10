@@ -1,7 +1,7 @@
 package dev.zac99lol.originscontent.mixin.client.override_hotbar_power;
 
 import com.llamalad7.mixinextras.sugar.Local;
-import dev.zac99lol.originscontent.power.OverrideHotbarPower;
+import dev.zac99lol.originscontent.apoli.power.OverrideHotbarPower;
 import io.github.apace100.apoli.component.PowerHolderComponent;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.hud.InGameHud;
