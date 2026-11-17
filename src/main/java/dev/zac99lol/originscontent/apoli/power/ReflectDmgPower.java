@@ -16,7 +16,6 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.damage.DamageSources;
 import net.minecraft.entity.damage.DamageType;
-import net.minecraft.entity.damage.DamageTypes;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Pair;
 
@@ -42,7 +41,7 @@ public class ReflectDmgPower extends Power {
         this.bientityCondition = bientityCondition;
         this.damageCondition = damageCondition;
         this.damageModifier = damageModifier;
-        this.damageType = damageType;
+        this.damageType = damageType != null ? damageType : entity.getDamageSources().mobAttack(entity).getTypeRegistryEntry().getKey().orElseThrow();
         this.immune = immune;
         this.bientityAction = bientityAction;
     }
@@ -88,7 +87,7 @@ public class ReflectDmgPower extends Power {
                 .add("bientity_condition", ApoliDataTypes.BIENTITY_CONDITION, null)
                 .add("damage_condition", ApoliDataTypes.DAMAGE_CONDITION, null)
                 .add("damage_modifier", Modifier.DATA_TYPE, null)
-                .add("damage_type", SerializableDataTypes.DAMAGE_TYPE, DamageTypes.PLAYER_ATTACK)
+                .add("damage_type", SerializableDataTypes.DAMAGE_TYPE, null)
                 .add("immune", SerializableDataTypes.BOOLEAN, true)
                 .add("bientity_action", ApoliDataTypes.BIENTITY_ACTION, null),
             data -> (type, entity) -> new ReflectDmgPower(

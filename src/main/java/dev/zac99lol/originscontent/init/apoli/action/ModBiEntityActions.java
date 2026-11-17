@@ -37,7 +37,6 @@ public interface ModBiEntityActions {
             .add("start_easing", ModDataTypes.EASING, null)
             .add("end_easing", ModDataTypes.EASING, null)
             .add("fall_off_easing", ModDataTypes.EASING, Easing.LINEAR)
-            .add("position", SerializableDataTypes.VECTOR)
             .add("fall_off_distance", SerializableDataTypes.FLOAT)
             .add("max_distance", SerializableDataTypes.FLOAT, 0F),
         (data, pair) -> {

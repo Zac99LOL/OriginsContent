@@ -1,17 +1,19 @@
 {
 	"display": {
 		"icon": {
-			"item": "minecraft:cod"
+			"item": "minecraft:skeleton_skull"
 		},
 		"title": {
-			"text": "Leviathan Class Lifeform"
+			"text": "Leviathan Class Lifeform",
+			"color": "aqua"
 		},
 		"description": {
-			"text": "Encounter a Grandgousier"
+			"text": "Encounter a Grandgousier",
+			"color": "dark_aqua"
 		},
 		"frame": "task",
 		"show_toast": true,
-		"announce_to_chat": false
+		"announce_to_chat": true
 	},
 	"parent": "originscontent:neverend/level3",
 	"criteria": {

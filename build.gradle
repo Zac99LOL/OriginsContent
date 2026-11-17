@@ -163,6 +163,7 @@ dependencies {
     modImplementation "xaero.map:xaeroworldmap-fabric-1.20.1:1.44.2"
     modImplementation "xaero.minimap:xaerominimap-fabric-1.20.1:26.4.2"
     modImplementation include("team.lodestar.lodestone:lodestone:1.20.1-1.6.2.3f-fabric")
+    modImplementation "maven.modrinth:lunali:0.0.1"
 
     modImplementation include("dev.zac99lol:neverend:1.0.0") // we don't talk about this one.
     modImplementation include("net.ludocrypt:specialmodels:1.4.10")

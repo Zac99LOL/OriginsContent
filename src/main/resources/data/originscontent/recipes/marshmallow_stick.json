@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:stick"
+    },
+    {
+      "item": "originscontent:marshmallow"
+    }
+  ],
+  "result": {
+    "item": "originscontent:marshmallow_stick"
+  },
+  "show_notification": true
+}

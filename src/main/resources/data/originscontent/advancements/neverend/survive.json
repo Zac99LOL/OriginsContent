@@ -1,0 +1,26 @@
+{
+	"display": {
+		"icon": {
+			"item": "liminalpools:anglerweed"
+		},
+		"title": {
+			"text": "Deep-Sea Fortitude",
+			"color": "aqua",
+			"bold": false
+		},
+		"description": {
+			"text": "Spend three hours total in level three without dying\n§8(Hidden Advancement)",
+			"color": "dark_aqua"
+		},
+		"frame": "challenge",
+		"show_toast": true,
+		"announce_to_chat": true,
+		"hidden": true
+	},
+  	"parent": "originscontent:neverend/level3",
+	"criteria": {
+		"nohappen": {
+			"trigger": "minecraft:impossible"
+		}
+	}
+}

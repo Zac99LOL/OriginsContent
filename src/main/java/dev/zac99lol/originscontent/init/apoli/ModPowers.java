@@ -22,6 +22,7 @@ public interface ModPowers {
     PowerFactory<?> SPRINTING_HUNGER = createPower("sprinting_hunger", SprintingHungerPower.getFactory());
     PowerFactory<?> PREVENT_CHAT = createPower("prevent_chat", PreventChatPower.getFactory());
     PowerFactory<?> DEFILE_PREVENT_DIVING = createPower("defile.prevent_diving", PreventDivingPower.getFactory());
+    PowerFactory<?> ARSENAL_ACTION_ON_REELING = createPower("arsenal.action_on_reeling", ActionOnReelingPower.getFactory());
 
     private static PowerFactory<?> createPower(String id, PowerFactory<?> powerFactory) {
         POWERS.put(powerFactory, OriginsContent.id(id));

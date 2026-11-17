@@ -1,0 +1,25 @@
+{
+	"display": {
+		"icon": {
+			"item": "minecraft:heart_of_the_sea"
+		},
+		"title": {
+			"text": "Thalassophobia Begone!",
+			"color": "aqua",
+			"bold": false
+		},
+		"description": {
+			"text": "Obtain all Neverend advancements (including hidden ones)",
+			"color": "dark_aqua"
+		},
+		"frame": "challenge",
+		"show_toast": true,
+		"announce_to_chat": true
+	},
+  	"parent": "originscontent:neverend/escape",
+	"criteria": {
+		"nohappen": {
+			"trigger": "minecraft:impossible"
+		}
+	}
+}

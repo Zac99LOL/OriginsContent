@@ -127,7 +127,7 @@ public interface ModEntityActions {
                 if (startEasing == null && endEasing == null);
                 else if (startEasing != null && endEasing != null) packet.setEasing(startEasing, endEasing);
                 else throw new JsonSyntaxException("Specify either no easings, one easing, or BOTH start and end easings.");
-            } else if (startEasing != null || endEasing != null) throw new JsonSyntaxException("Specify either no easings, one easing, or BOTH start and end easings.");
+            } else if (startEasing != null ^ endEasing != null) throw new JsonSyntaxException("Specify either no easings, one easing, or BOTH start and end easings.");
             else packet.setEasing(easing);
 
             packet.encode(buf);
@@ -177,6 +177,10 @@ public interface ModEntityActions {
             packet.encode(buf);
             ServerPlayNetworking.send(player, ModPackets.POSITIONED_SCREENSHAKE, buf);
         }));
+
+    ActionFactory<Entity> DISCOMBOBULATE = createAction("discombobulate", new ActionFactory<>(OriginsContent.id("discombobulate"),
+        new SerializableData(),
+        (data, entity) -> entity.remove(Entity.RemovalReason.DISCARDED)));
 
     private static ActionFactory<Entity> createAction(String id, ActionFactory<Entity> action) {
         ENTITY_ACTIONS.put(action, OriginsContent.id(id));

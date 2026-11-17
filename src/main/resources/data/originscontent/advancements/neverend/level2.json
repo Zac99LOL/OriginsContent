@@ -1,17 +1,19 @@
 {
 	"display": {
 		"icon": {
-			"item": "minecraft:black_concrete"
+			"item": "minecraft:ochre_froglight"
 		},
 		"title": {
-			"text": "Down the hatch!"
+			"text": "Down the hatch!",
+			"color": "aqua"
 		},
 		"description": {
-			"text": "Reach Level 2"
+			"text": "Reach level two",
+			"color": "dark_aqua"
 		},
 		"frame": "goal",
 		"show_toast": true,
-		"announce_to_chat": false,
+		"announce_to_chat": true,
 		"hidden": true
 	},
 	"parent": "originscontent:neverend/prelevel2",
@@ -22,7 +24,10 @@
 				"player": {
 					"location": {
 						"position": {
-							"y": 301
+							"y": {
+								"max": 288,
+								"min": 267
+							}
 						},
 						"dimension": "liminalpools:poolrooms"
 					}

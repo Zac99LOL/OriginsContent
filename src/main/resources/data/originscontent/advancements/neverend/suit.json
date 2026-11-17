@@ -4,12 +4,13 @@
 			"item": "liminalpools:closed_locker"
 		},
 		"title": {
-			"text": "Embrace the Depths"
+			"text": "Embrace the Depths",
+			"color": "aqua"
 		},
 		"description": {
-			"text": "Obtain a diving suit from a locker room"
+			"text": "Obtain a diving suit from a locker room",
+			"color": "dark_aqua"
 		},
-		"frame": "challenge",
 		"show_toast": true,
 		"announce_to_chat": false
 	},

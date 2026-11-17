@@ -4,14 +4,16 @@
 			"item": "liminalpools:octant"
 		},
 		"title": {
-			"text": "Close Encounters"
+			"text": "Close Encounters",
+			"color": "aqua"
 		},
 		"description": {
-			"text": "Enter a Grandgousier Cage and retrieve an Octant to be used to view chunk coordinates"
+			"text": "Enter a Grandgousier cage and retrieve an Octant to view chunk coordinates",
+			"color": "dark_aqua"
 		},
 		"frame": "challenge",
 		"show_toast": true,
-		"announce_to_chat": false
+		"announce_to_chat": true
 	},
 	"parent": "originscontent:neverend/level3",
 	"criteria": {

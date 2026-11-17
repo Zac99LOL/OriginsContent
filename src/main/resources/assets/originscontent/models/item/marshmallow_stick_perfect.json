@@ -1,0 +1,6 @@
+{
+  "parent": "originscontent:item/handheld_marshmallow_stick",
+  "textures": {
+    "layer0": "originscontent:item/marshmallow_stick_perfect"
+  }
+}

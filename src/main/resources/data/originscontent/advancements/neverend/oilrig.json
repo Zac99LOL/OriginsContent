@@ -4,10 +4,12 @@
 			"item": "liminalpools:ticker"
 		},
 		"title": {
-			"text": "Sunken Petroleum"
+			"text": "Sunken Petroleum",
+			"color": "aqua"
 		},
 		"description": {
-			"text": "Discover an Abandoned Oil Rig containing a 4 digit keycode"
+			"text": "Discover an abandoned oil rig containing a 4 digit keycode",
+			"color": "dark_aqua"
 		},
 		"frame": "task",
 		"show_toast": true,

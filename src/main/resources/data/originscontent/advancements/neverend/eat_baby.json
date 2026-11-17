@@ -1,0 +1,25 @@
+{
+  "display": {
+    "icon": {
+      "item": "liminalpools:poolfish"
+    },
+    "title": {
+      "text": "Fun-Sized Fish-Sticks",
+      "color": "aqua"
+    },
+    "description": {
+      "text": "Consume a baby Poolfish",
+      "color": "dark_aqua"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "parent": "originscontent:neverend/breed",
+  "criteria": {
+    "nohappen": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

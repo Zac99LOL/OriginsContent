@@ -1,24 +1,22 @@
 {
 	"display": {
 		"icon": {
-			"item": "liminalpools:liminal_tiles"
+			"item": "liminalpools:poolfish"
 		},
 		"title": {
 			"text": "Neverend"
 		},
 		"description": {
-			"text": "Welcome to hell!"
+			"text": "Welcome to Neverend, an endless aquatic prison filled with fish and friends!",
+			"color": "dark_aqua"
 		},
 		"background": "liminalpools:textures/block/abyssteel.png",
-		"frame": "task",
+		"frame": "challenge",
 		"show_toast": false,
 		"announce_to_chat": false
-	},
+	},	
 	"criteria": {
-		"nohappen": {
-			"trigger": "minecraft:impossible"
-		},
-		"dimension": {
+		"enter_dimension": {
 			"trigger": "minecraft:changed_dimension",
 			"conditions": {
 				"to": "liminalpools:poolrooms"

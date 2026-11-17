@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.injection.ModifyConstant;
 
 @Mixin(ClientPlayerEntity.class)
 public abstract class ClientPlayerEntityMixin {
-    @ModifyConstant(method = "canSprint", constant = @Constant)
+    @ModifyConstant(method = "canSprint", constant = @Constant(floatValue = 6F))
     private float originscontent$modifyMinimumHungerLevel(float constant) {
         SprintingHungerPower power = PowerHolderComponent.getPowers((ClientPlayerEntity) (Object) this, SprintingHungerPower.class).stream().findFirst().orElse(null);
         if (power == null) return constant;

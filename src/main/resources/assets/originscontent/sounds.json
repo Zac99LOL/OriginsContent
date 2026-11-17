@@ -12,5 +12,17 @@
       "originscontent:tsundere"
     ],
     "subtitle": "subtitle.misc.absolute_cinema"
+  },
+  "block.marshmallow_can.store": {
+    "sounds": [
+      "originscontent:marshmallow_can_store"
+    ],
+    "subtitle": "subtitles.originscontent.block.marshmallow_can.store"
+  },
+  "block.marshmallow_can.take": {
+    "sounds": [
+      "originscontent:marshmallow_can_take"
+    ],
+    "subtitle": "subtitles.originscontent.block.marshmallow_can.take"
   }
 }

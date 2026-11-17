@@ -1,5 +1,6 @@
 package dev.zac99lol.originscontent.mixin.stained_axolotls;
 
+import dev.zac99lol.neverend.index.ModDimension;
 import dev.zac99lol.originscontent.init.ModSoundEvents;
 import dev.zac99lol.originscontent.util.AxolotlData;
 import dev.zac99lol.originscontent.util.LiminalAxolotl;
@@ -41,7 +42,7 @@ public abstract class AxolotlEntityMixin extends AnimalEntity implements Liminal
 
     @Inject(method = "mobTick", at = @At("HEAD"))
     private void originscontent$checkWater(CallbackInfo ci) {
-        if (!this.originscontent$isLiminal() && this.isSubmergedInWater()/* && this.getWorld().getRegistryKey() == ModDimension.POOLROOMS_REGISTRY_KEY*/) {
+        if (!this.originscontent$isLiminal() && this.isSubmergedInWater() && this.getWorld().getRegistryKey().equals(ModDimension.POOLROOMS_REGISTRY_KEY)) {
             if (originscontent$submergedTicks > 60) {
                 this.playSound(ModSoundEvents.AXOLOTL_CONVERT, 1.0F, 1.0F);
                 this.originscontent$setLiminal(true);

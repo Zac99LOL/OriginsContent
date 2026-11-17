@@ -4,14 +4,16 @@
 			"item": "liminalpools:abyssteel"
 		},
 		"title": {
-			"text": "Here We Go..."
+			"text": "Here We Go...",
+			"color": "aqua"
 		},
 		"description": {
-			"text": "Reach Level 3"
+			"text": "Reach level three",
+			"color": "dark_aqua"
 		},
 		"frame": "goal",
 		"show_toast": true,
-		"announce_to_chat": false,
+		"announce_to_chat": true,
 		"hidden": true
 	},
 	"parent": "originscontent:neverend/prelevel3",
@@ -22,7 +24,10 @@
 				"player": {
 					"location": {
 						"position": {
-							"y": 266
+							"y": {
+								"max": 267,
+								"min": 0
+							}
 						},
 						"dimension": "liminalpools:poolrooms"
 					}

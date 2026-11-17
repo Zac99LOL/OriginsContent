@@ -4,10 +4,12 @@
 			"item": "liminalpools:liminal_tiles"
 		},
 		"title": {
-			"text": "The End?"
+			"text": "The End?",
+			"color": "aqua"
 		},
 		"description": {
-			"text": "Reach Level 1"
+			"text": "Reach level one.",
+			"color": "dark_aqua"
 		},
 		"frame": "goal",
 		"show_toast": true,

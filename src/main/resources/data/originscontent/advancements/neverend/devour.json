@@ -1,15 +1,17 @@
 {
 	"display": {
 		"icon": {
-			"item": "minecraft:structure_void"
+			"item": "minecraft:wither_skeleton_skull"
 		},
 		"title": {
-			"text": "The Point of No Return"
+			"text": "The Point of No Return",
+			"color": "aqua"
 		},
 		"description": {
-			"text": "Get Devoured by a Leviathan Grandgousier"
+			"text": "Awaken a Leviathan Grandgousier\n§8(Hidden Advancement)",
+			"color": "dark_aqua"
 		},
-		"frame": "task",
+		"frame": "challenge",
 		"show_toast": true,
 		"announce_to_chat": true,
 		"hidden": true

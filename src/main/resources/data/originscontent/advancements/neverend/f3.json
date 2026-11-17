@@ -4,10 +4,12 @@
 			"item": "minecraft:barrier"
 		},
 		"title": {
-			"text": "Clueless"
+			"text": "Clueless",
+			"color": "aqua"
 		},
 		"description": {
-			"text": "Oh no you don't!"
+			"text": "Oh no you don't!\n§8(Hidden Advancement)",
+			"color": "dark_aqua"
 		},
 		"frame": "task",
 		"show_toast": true,

@@ -5,21 +5,34 @@
 		},
 		"title": {
 			"text": "Going Deeper",
-			"color": "dark_aqua",
+			"color": "aqua",
 			"bold": false
 		},
 		"description": {
-			"text": "Discover an Aquatic Chute",
-			"color": "aqua"
+			"text": "Descend into an Aquatic Chute",
+			"color": "dark_aqua"
 		},
 		"frame": "task",
-		"show_toast": true,
+		"show_toast": false,
 		"announce_to_chat": false
 	},
   	"parent": "originscontent:neverend/level1",
 	"criteria": {
-		"nohappen": {
-			"trigger": "minecraft:impossible"
+		"y_level": {
+			"trigger": "minecraft:location",
+			"conditions": {
+				"player": {
+					"location": {
+						"position": {
+							"y": {
+								"max": 288,
+								"min": 267
+							}
+						},
+						"dimension": "liminalpools:poolrooms"
+					}
+				}
+			}
 		}
 	}
 }

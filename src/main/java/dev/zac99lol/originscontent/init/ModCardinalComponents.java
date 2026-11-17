@@ -5,14 +5,13 @@ import dev.onyxstudios.cca.api.v3.component.ComponentRegistry;
 import dev.onyxstudios.cca.api.v3.entity.EntityComponentFactoryRegistry;
 import dev.onyxstudios.cca.api.v3.entity.EntityComponentInitializer;
 import dev.onyxstudios.cca.api.v3.entity.RespawnCopyStrategy;
-import dev.zac99lol.originscontent.OriginsContent;
-import dev.zac99lol.originscontent.cca.PlayerSavedOriginComponent;
+import dev.zac99lol.originscontent.cca.HoldingComponent;
 
 public class ModCardinalComponents implements EntityComponentInitializer {
-    public static final ComponentKey<PlayerSavedOriginComponent> SAVED_ORIGIN = ComponentRegistry.getOrCreate(OriginsContent.id("saved_origin"), PlayerSavedOriginComponent.class);
+    public static final ComponentKey<HoldingComponent> HOLDING = ComponentRegistry.getOrCreate(ModPackets.HOLDING, HoldingComponent.class);
 
     @Override
     public void registerEntityComponentFactories(EntityComponentFactoryRegistry registry) {
-        registry.registerForPlayers(SAVED_ORIGIN, PlayerSavedOriginComponent::new, RespawnCopyStrategy.ALWAYS_COPY);
+        registry.registerForPlayers(HOLDING, HoldingComponent::new, RespawnCopyStrategy.NEVER_COPY);
     }
 }

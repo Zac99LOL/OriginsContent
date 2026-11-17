@@ -5,21 +5,34 @@
 		},
 		"title": {
 			"text": "The Eye of the Hurricane",
-			"color": "dark_aqua",
+			"color": "aqua",
 			"bold": false
 		},
 		"description": {
-			"text": "Discover an Abyssal Chasm",
-			"color": "aqua"
+			"text": "Descend into an Abyssal Chasm",
+			"color": "dark_aqua"
 		},
 		"frame": "task",
-		"show_toast": true,
+		"show_toast": false,
 		"announce_to_chat": false
 	},
   	"parent": "originscontent:neverend/suit",
 	"criteria": {
-		"nohappen": {
-			"trigger": "minecraft:impossible"
+		"y_level": {
+			"trigger": "minecraft:location",
+			"conditions": {
+				"player": {
+					"location": {
+						"position": {
+							"y": {
+								"max": 267,
+								"min": 0
+							}
+						},
+						"dimension": "liminalpools:poolrooms"
+					}
+				}
+			}
 		}
 	}
 }

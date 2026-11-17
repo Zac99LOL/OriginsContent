@@ -8,4 +8,5 @@ import net.minecraft.item.FoodComponent;
 public interface ModFoodComponents {
     FoodComponent TSUNDERE = new FoodComponent.Builder().alwaysEdible().statusEffect(new StatusEffectInstance(StatusEffects.LEVITATION, 4, 99), 1.0F).build();
     FoodComponent BULLSHIT = new FoodComponent.Builder().alwaysEdible().statusEffect(new StatusEffectInstance(DefileStatusEffects.INKMORPHOSIS, 600, 0), 0.5F).build();
+    FoodComponent MARSHMALLOW = new FoodComponent.Builder().snack().hunger(2).saturationModifier(0.1F).alwaysEdible().build();
 }

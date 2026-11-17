@@ -3,6 +3,7 @@ package dev.zac99lol.originscontent.init;
 import dev.zac99lol.originscontent.OriginsContent;
 import dev.zac99lol.originscontent.item.EmotionalSupportPerkeoItem;
 import dev.zac99lol.originscontent.item.EnchantedBookBundleItem;
+import dev.zac99lol.originscontent.item.MarshmallowOnAStickItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.entity.EquipmentSlot;
@@ -48,6 +49,8 @@ public interface ModItems {
     Item POOLFISH_ON_A_STICK = createItem("poolfish_on_a_stick", new Item(new FabricItemSettings().maxCount(1)));
     Item OLLIE_TSUNDERE = createItem("music_disc_tsundere", new MusicDiscItem(13, ModSoundEvents.MUSIC_DISC_TSUNDERE, new FabricItemSettings().maxCount(1).rarity(Rarity.EPIC), 206), ItemGroups.SEARCH);
     Item MODEL_ITEM = createItem("model", new Item(new FabricItemSettings()));
+    Item MARSHMALLOW = createItem("marshmallow", new Item(new FabricItemSettings().food(ModFoodComponents.MARSHMALLOW)), ItemGroups.FOOD_AND_DRINK);
+    Item MARSHMALLOW_ON_A_STICK = createItem("marshmallow_stick", new MarshmallowOnAStickItem(new FabricItemSettings().maxCount(1).maxDamage(1)), ItemGroups.FOOD_AND_DRINK);
 
     private static <T extends Item> T createItem(String id, T item) {
         ITEMS.put(item, OriginsContent.id(id));

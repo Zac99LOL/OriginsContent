@@ -13,9 +13,17 @@
     "disable_offhand_power.HandledScreenSlotIconMixin",
     "fix_knockback_hits.ClientPlayerEntityMixin",
     "jade_config_options.PluginsConfigScreenMixin",
+    "marshmallow_bullshit.HeldItemRendererMixin",
+    "marshmallow_bullshit.InGameHudMixin",
+    "marshmallow_bullshit.MinecraftClientMixin",
+    "marshmallow_bullshit.PlayerEntityRendererMixin",
     "max_health_update_faster_please.InGameHudMixin",
     "neverend_advancements.DebugHudMixin",
+    "neverend_changes.ClientPlayerEntityMixin",
+    "neverend_changes.DebugHudMixin",
     "neverend_changes.GuiMapMixin",
+    "neverend_changes.KeyboardMixin",
+    "neverend_changes.OriginDisplayScreenMixin",
     "no_health.OtherClientPlayerEntityMixin",
     "override_hotbar_power.HeldItemFeatureRendererMixin",
     "override_hotbar_power.HeldItemRendererMixin",
@@ -36,10 +44,13 @@
   },
   "mixins": [
     "fuck_your_weather_sounds.DefileClientMixin",
+    "marshmallow_bullshit.LivingEntityMixin",
     "neverend_changes.IrisMixin",
     "neverend_changes.JadeOverlayRendererMixin",
     "neverend_changes.MinimapRendererMixin",
     "neverend_changes.OctantBlockEntityRendererMixin",
+    "neverend_changes.SkyboxRendererMixin",
+    "neverend_changes.SonarBlockEntityRendererMixin",
     "neverend_changes.WaypointWorldRenderReaderMixin"
   ]
 }

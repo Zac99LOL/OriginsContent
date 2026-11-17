@@ -1,15 +1,16 @@
 {
 	"display": {
 		"icon": {
-			"item": "minecraft:compass"
+			"item": "liminalpools:sonar"
 		},
 		"title": {
-			"text": "Resurrected Sonar"
+			"text": "Resurrected Sonar",
+			"color": "aqua"
 		},
 		"description": {
-			"text": "Recieve a set of chunk coordinates from a Navigation Deck combination lock"
+			"text": "Recieve a set of chunk coordinates from a Navigation Deck combination lock",
+			"color": "dark_aqua"
 		},
-		"frame": "challenge",
 		"show_toast": true,
 		"announce_to_chat": false
 	},

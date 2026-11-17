@@ -1,0 +1,26 @@
+{
+	"display": {
+		"icon": {
+			"item": "minecraft:cooked_cod"
+		},
+		"title": {
+			"text": "Worthy Sacrifice",
+			"color": "aqua",
+			"bold": false
+		},
+		"description": {
+			"text": "Witness a player be devoured by a Leviathan Grandgousier",
+			"color": "dark_aqua"
+		},
+		"frame": "task",
+		"show_toast": true,
+		"announce_to_chat": false,
+		"hidden": true
+	},
+  	"parent": "originscontent:neverend/devour",
+	"criteria": {
+		"nohappen": {
+			"trigger": "minecraft:impossible"
+		}
+	}
+}

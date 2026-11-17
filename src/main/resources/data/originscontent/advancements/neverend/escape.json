@@ -4,20 +4,26 @@
 			"item": "minecraft:grass_block"
 		},
 		"title": {
-			"text": "Nightmarish Finale"
+			"text": "Nightmarish Finale",
+			"color": "aqua"
 		},
 		"description": {
-			"text": "Successfully escape Neverend"
+			"text": "Successfully escape Neverend",
+			"color": "dark_aqua"
 		},
 		"frame": "challenge",
 		"show_toast": true,
-		"announce_to_chat": false,
+		"announce_to_chat": true,
 		"hidden": true
 	},
 	"parent": "originscontent:neverend/depth",
 	"criteria": {
-		"nohappen": {
-			"trigger": "minecraft:impossible"
+		"enter_dimension": {
+			"trigger": "minecraft:changed_dimension",
+			"conditions": {
+				"from": "liminalpools:poolrooms",
+				"to": "minecraft:overworld"
+			}
 		}
 	}
 }

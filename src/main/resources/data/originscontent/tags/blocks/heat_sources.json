@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "#minecraft:fire",
+    "#minecraft:campfires",
+    "minecraft:lava",
+    "minecraft:lava_cauldron",
+    "minecraft:furnace",
+    "minecraft:smoker",
+    "minecraft:blast_furnace"
+  ]
+}

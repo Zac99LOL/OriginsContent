@@ -54,7 +54,8 @@
       "update_checker": false
     },
     "cardinal-components": [
-      "originscontent:saved_origin"
+      "originscontent:saved_origin",
+      "originscontent:holding"
     ]
   }
 }

@@ -29,5 +29,17 @@
   "gui.originscontent.disabled_in_neverend": "This feature is disabled whilst in Neverend.",
   "block.originscontent.panorama": "Block of Panorama",
   "gui.originscontent.left_in_combat.title": "You left in combat!",
-  "gui.originscontent.left_in_combat.description": "Players can still attack you!"
+  "gui.originscontent.left_in_combat.description": "Players can still attack you!",
+  "tooltip.originscontent.cook_level.raw": "Uncooked",
+  "tooltip.originscontent.cook_level.slightly_cooked": "Slightly Roasted",
+  "tooltip.originscontent.cook_level.cooked": "Roasted",
+  "tooltip.originscontent.cook_level.perfect": "Perfectly Roasted",
+  "tooltip.originscontent.cook_level.burnt": "Burnt",
+  "block.originscontent.marshmallow_can": "Marshmallow Can",
+  "item.originscontent.marshmallow_stick": "Marshmallow on a Stick",
+  "item.originscontent.marshmallow": "Marshmallow",
+  "item.originscontent.marshmallows": "Marshmallows",
+  "tooltip.originscontent.baby": "Baby",
+  "gui.originscontent.neverend_origin.title": "Enshrouded",
+  "gui.originscontent.neverend_origin.description": "An unknown force surrounding you seems to enshroud your abilities and inventory, upon escaping it will be restored."
 }

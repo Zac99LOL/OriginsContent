@@ -1,0 +1,25 @@
+{
+	"display": {
+		"icon": {
+			"item": "minecraft:cod"
+		},
+		"title": {
+			"text": "Midnight Snack",
+			"color": "aqua",
+			"bold": false
+		},
+		"description": {
+			"text": "Distract a Grandgousier using a Poolfish",
+			"color": "dark_aqua"
+		},
+		"frame": "task",
+		"show_toast": true,
+		"announce_to_chat": false
+	},
+  	"parent": "originscontent:neverend/grandgousier",
+	"criteria": {
+		"nohappen": {
+			"trigger": "minecraft:impossible"
+		}
+	}
+}

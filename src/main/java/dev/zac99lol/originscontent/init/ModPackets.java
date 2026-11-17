@@ -13,4 +13,5 @@ public interface ModPackets {
     Identifier OPEN_F3 = OriginsContent.id("open_f3_packet");
     Identifier SCREENSHAKE = OriginsContent.id("screenshake_packet");
     Identifier POSITIONED_SCREENSHAKE = OriginsContent.id("positioned_screenshake_packet");
+    Identifier HOLDING = OriginsContent.id("holding");
 }

@@ -1,0 +1,29 @@
+{
+	"display": {
+		"icon": {
+			"item": "minecraft:hopper"
+		},
+		"title": {
+			"text": "Abyssal Descent",
+			"color": "aqua",
+			"bold": false
+		},
+		"description": {
+			"text": "Using an Octant to find the Navigation Deck coordinates, descend into the abyss below",
+			"color": "dark_aqua"
+		},
+		"frame": "task",
+		"show_toast": false,
+		"announce_to_chat": false
+	},
+  	"parent": "originscontent:neverend/cage",
+	"criteria": {
+		"enter_dimension": {
+			"trigger": "minecraft:changed_dimension",
+			"conditions": {
+				"from": "liminalpools:poolrooms",
+				"to": "minecraft:overworld"
+			}
+		}
+	}
+}
