@@ -5,10 +5,14 @@ import dev.zac99lol.originscontent.OriginsContent;
 import dev.zac99lol.originscontent.apoli.power.PreventChatPower;
 import dev.zac99lol.originscontent.client.render.PanoramaRenderer;
 import dev.zac99lol.originscontent.config.ModConfig;
+import dev.zac99lol.originscontent.init.ModBlocks;
+import dev.zac99lol.originscontent.init.ModItems;
 import dev.zac99lol.originscontent.init.ModPackets;
+import dev.zac99lol.originscontent.item.MarshmallowOnAStickItem;
 import io.github.apace100.apoli.component.PowerHolderComponent;
 import me.shedaniel.autoconfig.AutoConfig;
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.message.v1.ClientSendMessageEvents;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
@@ -17,6 +21,8 @@ import net.fabricmc.loader.api.FabricLoader;
 import net.irisshaders.iris.Iris;
 import net.ludocrypt.specialmodels.api.SpecialModelRenderer;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.item.ModelPredicateProviderRegistry;
+import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.toast.SystemToast;
 import net.minecraft.client.toast.Toast;
 import net.minecraft.registry.Registry;
@@ -41,6 +47,9 @@ public class OriginsContentClient implements ClientModInitializer {
         OriginsContent.LOGGER.info("Initialising OriginsContent on the client...");
 
         Registry.register(SpecialModelRenderer.SPECIAL_MODEL_RENDERER, OriginsContent.id("panorama"), new PanoramaRenderer());
+
+        ModelPredicateProviderRegistry.register(ModItems.MARSHMALLOW_ON_A_STICK, OriginsContent.id("marshmallow"), (stack, world, entity, seed) -> MarshmallowOnAStickItem.CookState.getCookState(stack).ordinal() / (float) MarshmallowOnAStickItem.CookState.values().length);
+        BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(), ModBlocks.MARSHMALLOW_CAN);
 
         // prevent chat power
         ClientSendMessageEvents.ALLOW_CHAT.register(message -> {
