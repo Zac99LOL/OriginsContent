@@ -38,8 +38,11 @@
   "block.originscontent.marshmallow_can": "Marshmallow Can",
   "item.originscontent.marshmallow_stick": "Marshmallow on a Stick",
   "item.originscontent.marshmallow": "Marshmallow",
-  "item.originscontent.marshmallows": "Marshmallows",
+  "itemTooltip.originscontent.marshmallow": "Marshmallow",
+  "itemTooltip.originscontent.marshmallows": "Marshmallows",
   "tooltip.originscontent.baby": "Baby",
   "gui.originscontent.neverend_origin.title": "Enshrouded",
-  "gui.originscontent.neverend_origin.description": "An unknown force surrounding you seems to enshroud your abilities and inventory, upon escaping it will be restored."
+  "gui.originscontent.neverend_origin.description": "An unknown force surrounding you seems to enshroud your abilities and inventory, upon escaping it will be restored.",
+  "subtitles.originscontent.block.marshmallow_can.take": "Marshmallow is taken",
+  "subtitles.originscontent.block.marshmallow_can.store": "Marshmallow is stored"
 }

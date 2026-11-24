@@ -1,6 +1,7 @@
 package dev.zac99lol.originscontent.item;
 
 import dev.zac99lol.originscontent.OriginsContent;
+import dev.zac99lol.originscontent.init.ModFoodComponents;
 import dev.zac99lol.originscontent.init.ModItems;
 import dev.zac99lol.originscontent.util.BlockCastFinder;
 import net.minecraft.advancement.criterion.Criteria;
@@ -155,18 +156,22 @@ public class MarshmallowOnAStickItem extends Item {
     }
 
     public enum CookState {
-        RAW(0, 0xA2A6A1),
-        SLIGHTLY_COOKED(2 * 20, 0xC9B188),
-        COOKED(10 * 20, 0xE8BC66),
-        PERFECT(16 * 20 + 10, 0xFFC724),
-        BURNT(17 * 20, 0x473D24);
+        RAW(0, 0xA2A6A1, 0, 0),
+        SLIGHTLY_COOKED(2 * 20, 0xC9B188, 2, 0.2f),
+        COOKED(10 * 20, 0xE8BC66, 4, 0.3f),
+        PERFECT(16 * 20 + 10, 0xFFC724, 7, 0.6f),
+        BURNT(17 * 20, 0x473D24, 0, 0);
 
         public final int cookTime;
         public final int color;
+        public final int hunger;
+        public final float saturationModifier;
 
-        CookState(int cookTime, int color) {
+        CookState(int cookTime, int color, int hunger, float saturationModifier) {
             this.cookTime = cookTime;
             this.color = color;
+            this.hunger = hunger + ModFoodComponents.MARSHMALLOW.getHunger();
+            this.saturationModifier = saturationModifier + ModFoodComponents.MARSHMALLOW.getSaturationModifier();
         }
 
         public static CookState getCookState(@NotNull ItemStack stack) {

@@ -132,7 +132,7 @@ public class MarshmallowCanBlock extends BlockWithEntity {
         String plural = (marshmallowCount == 1 ? "" : "s");
         tooltip.add(Text.literal(marshmallowCount + " ").append(
             Text.translatable("itemTooltip.originscontent.marshmallow" + plural)
-        ).setStyle(Style.EMPTY.withColor(1184810)));
+        ).setStyle(Style.EMPTY.withColor(11184810)));
 
         super.appendTooltip(stack, world, tooltip, options);
     }
