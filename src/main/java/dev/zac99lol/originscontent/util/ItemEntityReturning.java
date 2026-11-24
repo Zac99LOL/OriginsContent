@@ -1,6 +1,6 @@
 package dev.zac99lol.originscontent.util;
 
-public interface ItemEntityBullshit {
+public interface ItemEntityReturning {
     boolean originscontent$returningToOrigin();
     void originscontent$setReturning();
 }

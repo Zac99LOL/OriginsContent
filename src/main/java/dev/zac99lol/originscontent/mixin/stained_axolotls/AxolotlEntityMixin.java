@@ -50,7 +50,7 @@ public abstract class AxolotlEntityMixin extends AnimalEntity implements Liminal
                 originscontent$submergedTicks++;
             }
         } else {
-            originscontent$submergedTicks--;
+            originscontent$submergedTicks = 0;
         }
     }
 

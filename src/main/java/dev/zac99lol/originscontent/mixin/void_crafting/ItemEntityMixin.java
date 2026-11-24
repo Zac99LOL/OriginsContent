@@ -3,7 +3,7 @@ package dev.zac99lol.originscontent.mixin.void_crafting;
 import dev.zac99lol.originscontent.OriginsContent;
 import dev.zac99lol.originscontent.init.ModItems;
 import dev.zac99lol.originscontent.item.EmotionalSupportPerkeoItem;
-import dev.zac99lol.originscontent.util.ItemEntityBullshit;
+import dev.zac99lol.originscontent.util.ItemEntityReturning;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ItemEntity;
@@ -21,7 +21,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(ItemEntity.class)
-public abstract class ItemEntityMixin extends Entity implements ItemEntityBullshit {
+public abstract class ItemEntityMixin extends Entity implements ItemEntityReturning {
     public ItemEntityMixin(EntityType<?> type, World world) {
         super(type, world);
     }
@@ -107,6 +107,6 @@ public abstract class ItemEntityMixin extends Entity implements ItemEntityBullsh
         if (owner != null) { entity.setOwner(owner.getUuid()); }
 
         itemEntity.setNoGravity(true);
-        ((ItemEntityBullshit) this).originscontent$setReturning();
+        ((ItemEntityReturning) this).originscontent$setReturning();
     }
 }

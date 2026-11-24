@@ -2,7 +2,7 @@ package dev.zac99lol.originscontent.mixin.rideable_grandgousiers;
 
 import dev.zac99lol.neverend.entity.GrandgousierEntity;
 import dev.zac99lol.originscontent.init.ModItems;
-import dev.zac99lol.originscontent.util.GrandgousierBullshit;
+import dev.zac99lol.originscontent.util.GrandgousierData;
 import net.minecraft.entity.*;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.mob.WaterCreatureEntity;
@@ -33,14 +33,14 @@ public abstract class GrandgousierEntityMixin extends WaterCreatureEntity implem
 
     @Inject(method = "initDataTracker", at = @At("TAIL"))
     private void originscontent$initData(CallbackInfo ci) {
-        this.dataTracker.startTracking(GrandgousierBullshit.SADDLED, false);
-        this.dataTracker.startTracking(GrandgousierBullshit.AUTO_TARGETING, true);
+        this.dataTracker.startTracking(GrandgousierData.SADDLED, false);
+        this.dataTracker.startTracking(GrandgousierData.AUTO_TARGETING, true);
     }
 
     // saddle
     @Override
     public boolean isSaddled() {
-        return this.dataTracker.get(GrandgousierBullshit.SADDLED);
+        return this.dataTracker.get(GrandgousierData.SADDLED);
     }
     @Override
     public boolean canBeSaddled() {
@@ -48,7 +48,7 @@ public abstract class GrandgousierEntityMixin extends WaterCreatureEntity implem
     }
     @Override
     public void saddle(@Nullable SoundCategory sound) {
-        this.dataTracker.set(GrandgousierBullshit.SADDLED, true);
+        this.dataTracker.set(GrandgousierData.SADDLED, true);
         if (sound != null) this.playSound(SoundEvents.ENTITY_PIG_SADDLE, 0.5F, 1.0F);
     }
 
@@ -81,7 +81,7 @@ public abstract class GrandgousierEntityMixin extends WaterCreatureEntity implem
         return this.isSaddled() && this.getFirstPassenger() instanceof PlayerEntity p && p.isHolding(ModItems.POOLFISH_ON_A_STICK);
     }
     @Override public @Nullable LivingEntity getControllingPassenger() {
-        return this.originscontent$hasSteerer() && !this.dataTracker.get(GrandgousierBullshit.AUTO_TARGETING)
+        return this.originscontent$hasSteerer() && !this.dataTracker.get(GrandgousierData.AUTO_TARGETING)
             ? (PlayerEntity) this.getFirstPassenger() : null;
     }
     @Override protected void tickControlled(PlayerEntity controllingPlayer, Vec3d movementInput) {
@@ -132,7 +132,7 @@ public abstract class GrandgousierEntityMixin extends WaterCreatureEntity implem
             }
         }
         boolean auto = nearest != null;
-        if (this.dataTracker.get(GrandgousierBullshit.AUTO_TARGETING) != auto) this.dataTracker.set(GrandgousierBullshit.AUTO_TARGETING, auto);
+        if (this.dataTracker.get(GrandgousierData.AUTO_TARGETING) != auto) this.dataTracker.set(GrandgousierData.AUTO_TARGETING, auto);
         if (auto) this.setTarget(nearest);
         else if (this.originscontent$hasSteerer() && this.getTarget() != null) this.setTarget(null);
     }
@@ -150,10 +150,10 @@ public abstract class GrandgousierEntityMixin extends WaterCreatureEntity implem
     // saddle persistence
     @Inject(method = "writeCustomDataToNbt", at = @At("TAIL"))
     private void originscontent$saveSaddled(NbtCompound nbt, CallbackInfo ci) {
-        nbt.putBoolean("Saddled", this.dataTracker.get(GrandgousierBullshit.SADDLED));
+        nbt.putBoolean("Saddled", this.dataTracker.get(GrandgousierData.SADDLED));
     }
     @Inject(method = "readCustomDataFromNbt", at = @At("TAIL"))
     private void originscontent$readSaddled(NbtCompound nbt, CallbackInfo ci) {
-        this.dataTracker.set(GrandgousierBullshit.SADDLED, nbt.getBoolean("Saddled"));
+        this.dataTracker.set(GrandgousierData.SADDLED, nbt.getBoolean("Saddled"));
     }
 }
