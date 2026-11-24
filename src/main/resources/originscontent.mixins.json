@@ -26,6 +26,8 @@
     "combat_log.ServerPlayNetworkHandlerMixin",
     "custom_player_heads.TextureUrlCheckerMixin",
     "disable_offhand_power.ServerPlayNetworkHandlerMixin",
+    "divine_dominance.WorldBorderMixin",
+    "divine_dominance.WorldBorderStageMixin",
     "grandgousier_goals.GrandgousierEntityMixin",
     "grandgousier_invulnerability_fixes.GrandgousierEntityMixin",
     "inkling_dive_dimensions.EntityMixin",
