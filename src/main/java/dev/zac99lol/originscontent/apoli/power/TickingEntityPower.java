@@ -23,12 +23,4 @@ public class TickingEntityPower extends Power {
         //noinspection DataFlowIssue
         nullEntity.tick(); // stfu ik it will cause NullPointerException :sob:
     }
-
-    public static PowerFactory<?> getFactory() {
-        return new PowerFactory<>(
-            OriginsContent.id("ticking_entity"),
-            new SerializableData(),
-            data -> TickingEntityPower::new
-        );
-    }
 }

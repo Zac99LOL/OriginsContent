@@ -139,7 +139,7 @@ public class OverrideHotbarPower extends Power {
         }
     );
 
-    public static PowerFactory<?> getFactory() {
+    public static PowerFactory getFactory() {
         SerializableData data = new SerializableData();
         String[] names = {
             "hotbar_1", "hotbar_2", "hotbar_3", "hotbar_4", "hotbar_5",

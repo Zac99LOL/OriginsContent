@@ -80,8 +80,8 @@ public class ReflectDmgPower extends Power {
         return immune;
     }
 
-    public static PowerFactory<?> getFactory() {
-        return new PowerFactory<>(
+    public static PowerFactory getFactory() {
+        return new PowerFactory<ReflectDmgPower>(
             OriginsContent.id("reflect_dmg"),
             new SerializableData()
                 .add("bientity_condition", ApoliDataTypes.BIENTITY_CONDITION, null)

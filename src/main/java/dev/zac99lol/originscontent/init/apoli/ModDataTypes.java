@@ -3,7 +3,10 @@ package dev.zac99lol.originscontent.init.apoli;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonSyntaxException;
+import io.github.apace100.calio.data.SerializableData;
 import io.github.apace100.calio.data.SerializableDataType;
+import io.github.apace100.calio.data.SerializableDataTypes;
+import team.lodestar.lodestone.network.screenshake.ScreenshakePacket;
 import team.lodestar.lodestone.systems.easing.Easing;
 
 public interface ModDataTypes {

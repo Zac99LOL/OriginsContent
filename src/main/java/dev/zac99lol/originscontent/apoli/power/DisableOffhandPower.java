@@ -30,11 +30,4 @@ public class DisableOffhandPower extends Power {
             }
         }
     }
-
-    public static PowerFactory<?> getFactory() {
-        return (PowerFactory<?>) Power.createSimpleFactory(
-            DisableOffhandPower::new,
-            OriginsContent.id("disable_offhand")
-        );
-    }
 }

@@ -48,7 +48,7 @@ public class CancelInventoryActionsPower extends Power {
         });
     }
 
-    public static PowerFactory<CancelInventoryActionsPower> getFactory() {
+    public static PowerFactory getFactory() {
         return new PowerFactory<CancelInventoryActionsPower>(
             OriginsContent.id("cancel_inventory_actions"),
             new SerializableData()

@@ -20,8 +20,8 @@ public class SprintingHungerPower extends Power {
         return minimumSprintingHunger;
     }
 
-    public static PowerFactory<?> getFactory() {
-        return new PowerFactory<>(OriginsContent.id("sprinting_hunger"),
+    public static PowerFactory getFactory() {
+        return new PowerFactory<SprintingHungerPower>(OriginsContent.id("sprinting_hunger"),
             new SerializableData()
                 .add("minimum", SerializableDataTypes.FLOAT),
             data -> (type, entity) -> new SprintingHungerPower(type, entity,

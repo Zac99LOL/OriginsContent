@@ -26,7 +26,7 @@ public class PreventChatPower extends Power {
         return this.isActive() && preventCommand;
     }
 
-    public static PowerFactory<?> getFactory() {
+    public static PowerFactory getFactory() {
         return new PowerFactory<PreventChatPower>(OriginsContent.id("prevent_chat"),
             new SerializableData()
                 .add("prevent_chat", SerializableDataTypes.BOOLEAN, true)

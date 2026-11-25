@@ -39,8 +39,8 @@ public class ActionOnReelingPower extends CooldownPower {
         return onEntityHit && canUse();
     }
 
-    public static PowerFactory<?> getFactory() {
-        return new PowerFactory<>(OriginsContent.id("arsenal.action_on_reeling"),
+    public static PowerFactory getFactory() {
+        return new PowerFactory<ActionOnReelingPower>(OriginsContent.id("arsenal.action_on_reeling"),
             new SerializableData()
                 .add("cooldown", SerializableDataTypes.INT, 1)
                 .add("hud_render", ApoliDataTypes.HUD_RENDER, HudRender.DONT_RENDER)

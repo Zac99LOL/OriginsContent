@@ -11,8 +11,8 @@ public class CancelTotemsPower extends Power {
         super(type, entity);
     }
 
-    public static PowerFactory<?> getFactory() {
-        return (PowerFactory<?>) Power.createSimpleFactory(
+    public static PowerFactory getFactory() {
+        return (PowerFactory<CancelTotemsPower>) Power.createSimpleFactory(
             CancelTotemsPower::new,
             OriginsContent.id("cancel_totems")
         );

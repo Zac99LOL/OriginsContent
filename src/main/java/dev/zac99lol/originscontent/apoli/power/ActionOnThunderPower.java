@@ -33,7 +33,7 @@ public class ActionOnThunderPower extends CooldownPower {
         }
     }
 
-    public static PowerFactory<?> getFactory() {
+    public static PowerFactory getFactory() {
         return new PowerFactory<ActionOnThunderPower>(
             OriginsContent.id("defile.action_on_thunder"),
             new SerializableData()

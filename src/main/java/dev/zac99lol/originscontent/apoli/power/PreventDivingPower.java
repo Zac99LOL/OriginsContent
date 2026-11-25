@@ -27,8 +27,8 @@ public class PreventDivingPower extends Power {
     }
 
     @SuppressWarnings("unchecked")
-    public static PowerFactory<?> getFactory() {
-        return new PowerFactory<>(OriginsContent.id("defile.prevent_diving"),
+    public static PowerFactory getFactory() {
+        return new PowerFactory<PreventDivingPower>(OriginsContent.id("defile.prevent_diving"),
             new SerializableData().add("entity_action", ApoliDataTypes.ENTITY_ACTION, null),
             data -> (type, entity) -> new PreventDivingPower(type, entity,
                 (ActionFactory<Entity>.Instance) data.get("entity_action")))
