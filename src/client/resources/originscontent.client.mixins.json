@@ -28,6 +28,8 @@
     "override_hotbar_power.HeldItemFeatureRendererMixin",
     "override_hotbar_power.HeldItemRendererMixin",
     "override_hotbar_power.InGameHudMixin",
+    "override_hud_texture_power.BossBarHudMixin",
+    "override_hud_texture_power.InGameHudMixin",
     "players_visible_from_further_away.OtherClientPlayerEntityMixin",
     "resource_based_item_bars.DrawContextMixin",
     "rideable_grandgousiers.CameraMixin",
